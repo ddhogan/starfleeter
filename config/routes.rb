@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  root 'static#home'
+  root 'sessions#home'
   
   resources :missions
   
