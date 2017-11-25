@@ -5,10 +5,13 @@ class SessionsController < ApplicationController
 
     def login
     end
-    
-    def logout
+
+    def new
     end
 
-    def signup
+    def create
+    end
+    
+    def logout
     end
 end

@@ -2,6 +2,14 @@ Rails.application.routes.draw do
   
   root 'sessions#home'
   
+  # login_path
+  get '/login' => 'sessions#new'
+  # create_path
+  post '/login' => 'sessions#create'
+  
+  # logout_path
+  delete '/logout' => 'sessions#logout'
+
   resources :missions
   
   resources :crews
