@@ -1,0 +1,29 @@
+<h1>Welcome aboard, new crew person!</h1>
+
+<%= form_for(@crew, url: crews_path) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <br>
+    <%= f.label :rank %>
+    <%= f.text_field :rank %>
+    <br>
+    <%= f.label :specialty %>
+    <%= f.text_field :specialty %>
+    <br>
+    <%= f.label :clearance, "Security Clearance?" %><br>
+    <%= f.radio_button(:clearance, "false") %>
+    <%= f.label(:clearance_false, "No") %><br>
+    <%= f.radio_button(:clearance, "true") %>
+    <%= f.label(:clearance_true, "Yes") %><br>
+    <br>
+    <%= f.label :password %>
+    <%= f.text_field :password %>
+    <br>
+    <%= f.label :password_confirmation %>
+    <%= f.text_field :password_confirmation %>
+    <br>
+    <%= f.submit %>
+<% end %>
+
+<br></br>
+<p>Already a user? <%= link_to "Log In", login_path %></p>

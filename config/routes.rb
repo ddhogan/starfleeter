@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   # create_path
   post '/login' => 'sessions#create'
   
+  # signup path
+  get '/signup' => 'crews#new'
+  post '/signup' => 'crews#create'
+  
   # logout_path
   delete '/logout' => 'sessions#logout'
 
