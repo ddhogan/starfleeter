@@ -10,11 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171121185044) do
+ActiveRecord::Schema.define(version: 20171121185036) do
 
   create_table "assignments", force: :cascade do |t|
     t.string "name"
-    t.string "mission_id"
+    t.string "description"
+    t.string "crew_id"
     t.integer "ship_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -25,15 +26,7 @@ ActiveRecord::Schema.define(version: 20171121185044) do
     t.string "rank"
     t.string "specialty"
     t.boolean "clearance", default: false
-    t.integer "assignment_id"
     t.string "password_digest"
-  end
-
-  create_table "missions", force: :cascade do |t|
-    t.string "name"
-    t.integer "assignment_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "ships", force: :cascade do |t|
