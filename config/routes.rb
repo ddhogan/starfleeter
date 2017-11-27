@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   resources :crews
   
   resources :assignments
-    
+  
+  # ship_assignments, ship_assignment, new_ship_assignment, edit_ship_assignment, etc
   resources :ships do
     resources :assignments
   end
