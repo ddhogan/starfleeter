@@ -1,0 +1,5 @@
+<h1>The Fleet</h1>
+
+<% @ships.each do |s| %>
+    <%= link_to "#{s.name}", ship_path(s) %>
+<% end %>

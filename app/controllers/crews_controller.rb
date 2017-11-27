@@ -10,6 +10,7 @@ class CrewsController < ApplicationController
             redirect_to crew_path(@crew), notice: "Crew sign up was successful."
         else
             redirect_to new_crew_path, notice: "There was an error"
+            # more meaningful error message needed
         end
     end
 
