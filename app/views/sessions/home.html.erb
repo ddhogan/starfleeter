@@ -1,4 +1,23 @@
-<h1>Welcome to Starfleeter app</h1>
+<div class="container">
+  <div class="col-md-8 col-md-offset-2">
+    <h2>Starfleeter</h2>
 
-<%= link_to "Log In", login_path %>
-<%= link_to "Sign Up", new_crew_path %>
+    <div class="content">
+      <h4>Welcome to Starfleeter, the personnel and fleet management system based on the famous <a href="https://en.wikipedia.org/wiki/LCARS">LCARS</a> interface!</h4>
+      <br>
+      <p>Whether you're part of Starfleet Intelligence, or the <a href="http://memory-alpha.wikia.com/wiki/Obsidian_Order">Obsidian Order</a>, or the <a href="http://memory-alpha.wikia.com/wiki/Tal_Shiar">Tal Shiar</a>, or just a mobster with the <a href="http://memory-alpha.wikia.com/wiki/Orion_Syndicate">Orion Syndicate</a>, we've got you covered.</p>
+      
+      <p>LCARS helps you and your intelligence organization track and share information about relevant spacecraft, and assign crew to specific ships.</p>
+    </div>
+
+    <div class="sidebar">
+      <h3>Menu</h3>
+      <ul>
+        <li><button><%= link_to "Log In", login_path %></button></li>
+        <li><button><%= link_to "Sign Up", new_crew_path %></button></li>
+        <li> For more information, see the <a href="https://github.com/ddhogan/starship-LCARS/blob/master/README.md">README</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
