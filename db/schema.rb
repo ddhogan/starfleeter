@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20171121185044) do
 
   create_table "ships", force: :cascade do |t|
     t.string "name"
-    t.string "type"
+    t.string "type_class"
     t.integer "warp_factor"
     t.integer "complement"
     t.string "note"

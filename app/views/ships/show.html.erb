@@ -1,0 +1,10 @@
+<h1>Ship Information</h1>
+<h3><%= @ship.name %></h3>
+<ul>
+    <li>Type/class: <%= @ship.type_class %></li>
+    <li>Warp Factor: <%= @ship.warp_factor %></li>
+    <li>Crew Complement Size: <%= @ship.complement %></li>
+    <li>Notes: <%= @ship.note if @ship.note %></li>
+</ul>
+<br>
+<%= link_to "Edit this ship's info", edit_ship_path(@ship) %>
