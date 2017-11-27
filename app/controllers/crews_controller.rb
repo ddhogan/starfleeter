@@ -4,11 +4,12 @@ class CrewsController < ApplicationController
     end
 
     def create
-        @crew = Crew.create(crew_params)
+        @crew = Crew.new(crew_params)
         if @crew.save
+            # session[:crew_id] = @crew.id
             redirect_to crew_path(@crew), notice: "Crew sign up was successful."
-        # else
-        #     redirect_to new_crew_path, notice: "There was an error, please try again"
+        else
+            redirect_to new_crew_path, notice: "There was an error"
         end
     end
 

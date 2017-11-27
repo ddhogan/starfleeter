@@ -1,4 +1,9 @@
 class Crew < ApplicationRecord
+
     has_secure_password
-    belongs_to :assignment
+    
+    has_many :assignments
+    has_many :ships, through: :assignments
+
+    validates_presence_of :name
 end

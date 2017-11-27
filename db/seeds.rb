@@ -5,3 +5,5 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+roger = Crew.create(name: 'Roger', rank: 'Lieutenant', specialty: 'dancing', clearance: true, password_digest: BCrypt::Password.create('cilantro'))
+roger.save

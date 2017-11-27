@@ -1,5 +1,4 @@
 class Assignment < ApplicationRecord
-    belongs_to :mission
-    belongs_to :ship
-    has_many :crew
+    has_many :ships
+    belongs_to :crew
 end

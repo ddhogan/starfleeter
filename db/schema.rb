@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171125034351) do
+ActiveRecord::Schema.define(version: 20171121185044) do
 
   create_table "assignments", force: :cascade do |t|
     t.string "name"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20171125034351) do
     t.string "name"
     t.string "rank"
     t.string "specialty"
-    t.boolean "clearance"
+    t.boolean "clearance", default: false
     t.integer "assignment_id"
     t.string "password_digest"
   end
