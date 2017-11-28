@@ -6,15 +6,20 @@ class Ship < ApplicationRecord
 
     validates :warp_factor, numericality: { allow_nil: true }
 
-    
+
     # return the current fastest ship
     def self.fastest
         order(:warp_factor).last
     end
 
-    def assignments_attributes=(assignments_attributes)
-        assignments_attributes.values.each do |a|
-            self.assignments.build(a)
+    def crews_attributes=(crews_attributes)
+        crews_attributes.values.each do |c|
+            if c[:name].present?
+                crew = Crew.find_or_create_by(c)
+                if !self.crews.include?(crew)
+                    self.assignment.build(:crew => crew)
+                end
+            end
         end
     end
 end

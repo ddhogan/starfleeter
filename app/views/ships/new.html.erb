@@ -9,6 +9,12 @@
     <%= f.label :complement %>
     <%= f.number_field :complement %><br>
     <%= f.label :note %>
-    <%= f.text_area :note %><br>
+    <%= f.text_area :note %><br><br>
+    <p>Assign Crew?</p>
+    <%= f.collection_check_boxes :crew_ids, Crew.all, :id, :name %>
+    <%= f.fields_for :crews, @ship.crews.build do |crews_fields| %>
+        <%= crews_fields.text_field :name %>
+    <% end %>
+    <br></br>
     <%= f.submit %>
 <% end %>
