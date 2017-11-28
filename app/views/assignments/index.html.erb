@@ -1,0 +1,6 @@
+<h1>Current assignment log:</h1>
+<ul>
+<%= @assignments.each do |a| %>
+    <li><%= "#{a.crew.rank} #{a.crew.name} is assigned to the #{a.ship.name}" %></li>
+<% end %>
+</ul>

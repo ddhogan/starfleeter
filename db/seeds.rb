@@ -7,3 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 roger = Crew.create(name: 'Roger', rank: 'Lieutenant', specialty: 'dancing', clearance: true, password_digest: BCrypt::Password.create('cilantro'))
 roger.save
+
+voyager = Ship.create(name: 'Voyager', type_class: 'Galaxy', warp_factor: 7, complement: 500, note: "Lost in the delta quadrant")
+voyager.save
+
+bobby = Crew.create(name: "Bobby Droptables", rank: 'Ensign', specialty: 'skateboarding', clearance: false, password_digest: BCrypt::Password.create('password'))
+bobby.save

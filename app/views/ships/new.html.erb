@@ -12,6 +12,7 @@
     <%= f.text_area :note %><br><br>
     <p>Assign Crew?</p>
     <%= f.collection_check_boxes :crew_ids, Crew.all, :id, :name %>
+    <p>Or add a new crew member:</p>
     <%= f.fields_for :crews, @ship.crews.build do |crews_fields| %>
         <%= crews_fields.text_field :name %>
     <% end %>

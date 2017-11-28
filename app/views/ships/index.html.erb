@@ -1,7 +1,9 @@
 <h1>The Fleet</h1>
 
+<ul>
 <% @ships.each do |s| %>
-    <%= link_to "#{s.name}", ship_path(s) %>
+    <li><%= link_to "#{s.name}", ship_path(s) %></li>
 <% end %>
+</ul>
 <br></br>
 <p><%= link_to "What's the fastest ship right now?", ships_fastest_path %></p>
