@@ -14,9 +14,12 @@ Rails.application.routes.draw do
   resources :assignments, :only => [:index, :show, :destroy]
   
   # ship_assignments, ship_assignment, new_ship_assignment, edit_ship_assignment, etc
+  get '/ships/fastest' => 'ships#fastest'
+
   resources :ships do
     resources :assignments
   end
+  
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

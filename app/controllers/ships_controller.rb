@@ -34,6 +34,10 @@ class ShipsController < ApplicationController
         end
     end
 
+    def fastest
+        @ship = Ship.fastest
+    end
+
     private
 
     def ship_params

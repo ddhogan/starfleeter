@@ -3,3 +3,5 @@
 <% @ships.each do |s| %>
     <%= link_to "#{s.name}", ship_path(s) %>
 <% end %>
+<br></br>
+<p><%= link_to "What's the fastest ship right now?", ships_fastest_path %></p>
