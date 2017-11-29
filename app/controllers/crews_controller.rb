@@ -1,4 +1,5 @@
 class CrewsController < ApplicationController
+    # use helper methods from application controller to check if logged in before some actions
     def new
         @crew = Crew.new
     end
