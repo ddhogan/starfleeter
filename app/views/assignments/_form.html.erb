@@ -1,0 +1,11 @@
+<%= form_for @assignment do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %><br>
+    <%= f.label :description %>
+    <%= f.text_field :description %><br></br>
+    <h3>Ship</h3>
+    <%= f.collection_check_boxes :ship_id, Ship.all, :id, :name %><br></br>
+    <h3>Assign Crew</h3>
+    <%= f.collection_check_boxes :crew_id, Crew.all, :id, :name %><br>
+    <%= f.submit %>
+<% end %>
