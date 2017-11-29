@@ -1,5 +1,5 @@
 class AssignmentsController < ApplicationController
-    # set assignment before show, edit, update, destroy
+    before_action :set_assignment, only: [:show, :edit, :update, :destroy]
 
     def index
         @assignments = Assignment.all
@@ -19,28 +19,29 @@ class AssignmentsController < ApplicationController
     end
 
     def show
-        @assignment = Assignment.find_by(id: params[:id])
         if @assignment
             @ship = @assignment.ship
             @crews = @ship.crews
         else
+            @ship = Ship.find_by(id: params[:id])
             redirect_to new_ship_assignment_path, notice: "That ship does not currently have an assignment, you can create one here."
         end
     end
 
     def edit
-        @assignment = Assignment.find_by(id: params[:id])
     end
 
     def update
-        @assignment = Assignment.find_by(id: params[:id])
     end
 
     def destroy
-        @assignment = Assignment.find_by(id: params[:id])
     end
 
     private
+
+    def set_assignment
+        @assignment = Assignment.find_by(id: params[:id])
+    end
 
     def assignment_params
         params.require(:assignment).permit(:name, :description, :crew_id, :ship_id)
