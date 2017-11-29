@@ -20,8 +20,12 @@ class AssignmentsController < ApplicationController
 
     def show
         @assignment = Assignment.find_by(id: params[:id])
-        @ship = @assignment.ship unless !@ship
-        @crews = @ship.crews unless !@crews
+        if @assignment
+            @ship = @assignment.ship
+            @crews = @ship.crews
+        else
+            redirect_to new_ship_assignment_path, notice: "That ship does not currently have an assignment, you can create one here."
+        end
     end
 
     def edit
