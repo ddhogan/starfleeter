@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-    # set action logged in before viewing everything except home
+    # TO DO: set action logged in before viewing everything except home
 
     def welcome
     end

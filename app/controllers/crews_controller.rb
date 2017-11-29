@@ -1,5 +1,5 @@
 class CrewsController < ApplicationController
-    # use helper methods from application controller to check if logged in before some actions
+    # TO DO: use helper methods from application controller to check if logged in before some actions
     def new
         @crew = Crew.new
     end
@@ -11,11 +11,11 @@ class CrewsController < ApplicationController
     def create
         @crew = Crew.new(crew_params)
         if @crew.save
-            # session[:crew_id] = @crew.id
+            # TO DO: session[:crew_id] = @crew.id
             redirect_to crew_path(@crew), notice: "Crew sign up was successful."
         else
             redirect_to new_crew_path, notice: "There was an error"
-            # more meaningful error message needed
+            # TO DO: more meaningful error message needed
         end
     end
 
@@ -25,12 +25,12 @@ class CrewsController < ApplicationController
 
     def edit
         @crew = current_user
-        # if clearance, allow editing other profiles
+        # TO DO: if clearance, allow editing other profiles
     end
 
     def update
         @crew = current_user
-        # if clearance, allow editing other profiles
+        # To DO: if clearance, allow editing other profiles
         @crew.update(crew_params)
         if @crew.save
             redirect_to crew_path(@crew)
