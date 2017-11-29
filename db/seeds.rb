@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 ### Crew people ###
-roger = Crew.create(name: 'Roger', rank: 'Sergeant', specialty: 'dancing', clearance: true, password_digest: BCrypt::Password.create('cilantro'))
+roger = Crew.create(name: 'Roger', rank: 'Sergeant', specialty: 'dancing', clearance: false, password_digest: BCrypt::Password.create('cilantro'))
 roger.save
 
 bobby = Crew.create(name: "Bobby Droptables", rank: 'Ensign', specialty: 'skateboarding', clearance: false, password_digest: BCrypt::Password.create('password'))

@@ -24,7 +24,7 @@ class SessionsController < ApplicationController
     
     def logout
         if session[:crew_id]
-            session.delete :crew_id
+            session.clear
             redirect_to 'welcome'
         else
             redirect_to 'home'
