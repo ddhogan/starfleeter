@@ -13,17 +13,19 @@ class SessionsController < ApplicationController
         render 'login'
     end
 
-    #for signing in with Twitter
+    # only called when signing in with Twitter
     def create
-        @crew = Crew.find_or_create_by(uid: auth['uid']) do |u|
-            u.name = auth['info']['name']
-            u.email = auth['info']['email']
-            u.image = auth['info']['image']
+        @crew = Crew.find_or_create_by(uid: auth[:uid]) do |u|
+            u.name = auth[:info][:name]
+            u.email = auth[:info][:email]
+            u.image = auth[:info][:image]
+            u.password = SecureRandom.urlsafe_base64
         end
         
         @crew.name ||= "unknown name"
         @crew.rank ||= "unknown rank"
         @crew.save
+
         session[:crew_id] = @crew.id
         redirect_to home_path, notice: "Please confirm that your information is up to date by visiting the Edit Profile page"
     end
