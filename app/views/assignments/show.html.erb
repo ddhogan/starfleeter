@@ -1,0 +1,10 @@
+<h2><%= @ship.name %>'s current assignment</h2>
+<p>Crew:</p>
+<ul>
+<% @crews.each do |c| %>
+    <li><%= c.rank %> <%= c.name %></li>
+<% end %>
+</ul>
+<br></br>
+<p><%= link_to "Edit", edit_ship_assignment_path(@assignment) %></p>
+<p><%= link_to "Delete", @assignment, method: :delete, data: { confirm: 'confirm deleting this assignment?' } %></p>

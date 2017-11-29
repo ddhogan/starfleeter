@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
   
-  root 'sessions#home'
+  root 'sessions#welcome'
+
+  get '/home' => 'sessions#home'
   
   # login_path
   get '/login' => 'sessions#new'
   # create_path
   post '/login' => 'sessions#login'
   # logout_path
-  delete '/logout' => 'sessions#logout'
+  get '/logout' => 'sessions#logout'
 
   resources :crews
   

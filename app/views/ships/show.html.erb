@@ -7,4 +7,5 @@
     <li>Notes: <%= @ship.note if @ship.note %></li>
 </ul>
 <br>
-<%= link_to "Edit this ship's info", edit_ship_path(@ship) %>
+<p><%= link_to "View Current Assignment", ship_assignment_path(@ship) %></p>
+<p><%= link_to "Edit this ship's info", edit_ship_path(@ship) %></p>

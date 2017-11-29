@@ -3,6 +3,10 @@ class CrewsController < ApplicationController
         @crew = Crew.new
     end
 
+    def index
+        @crews = Crew.all
+    end
+
     def create
         @crew = Crew.new(crew_params)
         if @crew.save
