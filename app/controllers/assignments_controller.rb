@@ -20,8 +20,8 @@ class AssignmentsController < ApplicationController
 
     def show
         @assignment = Assignment.find_by(id: params[:id])
-        @ship = @assignment.ship
-        @crews = @ship.crews
+        @ship = @assignment.ship unless !@ship
+        @crews = @ship.crews unless !@crews
     end
 
     def edit

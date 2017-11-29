@@ -25,9 +25,9 @@ class SessionsController < ApplicationController
     def logout
         if session[:crew_id]
             session.clear
-            redirect_to 'welcome'
+            redirect_to root_path
         else
-            redirect_to 'home'
+            redirect_to home_path
         end
     end
 end
