@@ -1,9 +1,16 @@
-<h1>The Fleet</h1>
+<h2>The Fleet</h2>
+<div class="content">
+    <ul>
+    <% @ships.each do |s| %>
+        <li><%= link_to "#{s.name}", ship_path(s) %></li>
+    <% end %>
+    </ul>
+</div>
 
-<ul>
-<% @ships.each do |s| %>
-    <li><%= link_to "#{s.name}", ship_path(s) %></li>
-<% end %>
-</ul>
-<br></br>
-<p><%= link_to "What's the fastest ship right now?", ships_fastest_path %></p>
+<div class="sidebar">
+    <h3>Menu</h3>
+    <ul>
+        <li><%= link_to "What's the fastest ship right now?", ships_fastest_path %></li>
+        <li><%= link_to "Add a new ship", new_ship_path %></li>
+    </ul>
+</div>
