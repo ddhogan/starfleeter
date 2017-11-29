@@ -13,7 +13,7 @@ Specs:
 - [X] ~~*Include login (how e.g. Devise)*~~
 - [X] ~~*Include logout (how e.g. Devise)*~~
 - [ ] Include third party signup/login (how e.g. Devise/OmniAuth)
-- [ ] Include nested resource show or index (URL e.g. users/2/recipes)
+- [X] ~~*Include nested resource show or index (URL e.g. users/2/recipes)*~~
 - [ ] Include nested resource "new" form (URL e.g. recipes/1/ingredients)
 - [ ] Include form display of validation errors (form URL e.g. /recipes/new)
 
@@ -25,4 +25,4 @@ Confirm:
 
 
 ToDo:
-* [ ] prevent duplicate records when adding Ships or Crew
+* [X] ~~*prevent duplicate records when adding Ships or Crew*~~
