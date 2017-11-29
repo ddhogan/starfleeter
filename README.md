@@ -1,24 +1,35 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Starfleeter
+### Rails portfolio project for the Flatiron School
 
-Things you may want to cover:
+## Overview
+This app borrows a similar interface to the database Starfleet is always using on various StarTrek series.  In addition to managing content related to various starships, users can also assign crew to different ships and note the mission type, see what the current fastest ship in the fleet is, and slightly more!
 
-* Ruby version
+## Installation
+1. Fork and clone this repository, and then within the main directory execute
+```
+$ bundle install
+$ rake db:migrate
+```
+2. If you want some seed data to start with:
+```
+$ rake db:seed
+```
+3. Then run:
+```
+$ rails s
+```
+4. Open up a new browser tab and navigate to:
+```
+localhost:3000
+```
+5. Press `ctrl+C` to shut it down.
 
-* System dependencies
+This was made with Ruby 2.3.4, Rails 5.1.4, and moderate amounts of love.
 
-* Configuration
+### Contributors
+Contributions are welcome =]
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### License
+The full [MIT license](https://github.com/ddhogan/starfleeter/blob/master/LICENSE) can be found in this repo.
