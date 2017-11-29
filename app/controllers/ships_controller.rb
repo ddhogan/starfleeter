@@ -1,5 +1,6 @@
 class ShipsController < ApplicationController
-    
+    before_action :set_ship, only: [:show, :edit, :update, :destroy]    
+
     def index
         @ships = Ship.all
     end
@@ -18,15 +19,12 @@ class ShipsController < ApplicationController
     end
 
     def show
-        @ship = Ship.find_by(id: params[:id])
     end
 
     def edit
-        @ship = Ship.find_by(id: params[:id])
     end
 
     def update
-        @ship = Ship.find_by(id: params[:id])
         if @ship.update(ship_params)
             redirect_to ship_path(@ship)
         else
@@ -38,9 +36,14 @@ class ShipsController < ApplicationController
         @ship = Ship.fastest
     end
 
+    
     private
 
     def ship_params
         params.require(:ship).permit(:name, :type_class, :warp_factor, :complement, :note, crew_ids: [], crews_attributes: [:name])
+    end
+
+    def set_ship
+        @ship = Ship.find_by(id: params[:id])
     end
 end

@@ -37,13 +37,14 @@ class AssignmentsController < ApplicationController
     def destroy
     end
 
+    
     private
-
-    def set_assignment
-        @assignment = Assignment.find_by(id: params[:id])
-    end
 
     def assignment_params
         params.require(:assignment).permit(:name, :description, :crew_id, :ship_id)
+    end
+    
+    def set_assignment
+        @assignment = Assignment.find_by(id: params[:id])
     end
 end
