@@ -21,3 +21,6 @@
 /yarn-error.log
 
 .byebug_history
+
+# Don't commit secrets!
+.env

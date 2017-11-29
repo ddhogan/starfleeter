@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   
+  # sign in with Twitter
+  get '/auth/twitter/callback' => 'sessions#create'
+  
   root 'sessions#welcome'
   # home_path
   get '/home' => 'sessions#home'
@@ -9,6 +12,7 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#login'
   # logout_path
   get '/logout' => 'sessions#logout'
+ 
 
   resources :crews
   

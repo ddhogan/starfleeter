@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
-    
+    # set action logged in before viewing everything except home
+
     def welcome
     end
 
@@ -10,6 +11,18 @@ class SessionsController < ApplicationController
     def new
         @crew = Crew.new
         render 'login'
+    end
+
+    #for signing in with Twitter
+    def create
+        @crew = Crew.find_or_create_by(uid: auth['uid']) do |u|
+            u.name = auth['info']['name']
+            u.email = auth['info']['email']
+            u.image = auth['info']['image']
+            
+        end
+        session[:crew_id] = @crew.id
+        redirect_to home_path, notice: "Please confirm that your information is up to date by visiting the Edit Profile page"
     end
 
     def login
@@ -29,5 +42,11 @@ class SessionsController < ApplicationController
         else
             redirect_to home_path
         end
+    end
+
+    private
+
+    def auth
+        request.env['omniauth.auth']
     end
 end
