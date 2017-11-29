@@ -19,8 +19,11 @@ class SessionsController < ApplicationController
             u.name = auth['info']['name']
             u.email = auth['info']['email']
             u.image = auth['info']['image']
-            
         end
+        
+        @crew.name ||= "unknown name"
+        @crew.rank ||= "unknown rank"
+        @crew.save
         session[:crew_id] = @crew.id
         redirect_to home_path, notice: "Please confirm that your information is up to date by visiting the Edit Profile page"
     end

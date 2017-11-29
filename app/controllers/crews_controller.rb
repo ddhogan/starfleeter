@@ -23,6 +23,22 @@ class CrewsController < ApplicationController
         @crew = Crew.find_by(id: params[:id])
     end
 
+    def edit
+        @crew = current_user
+        # if clearance, allow editing other profiles
+    end
+
+    def update
+        @crew = current_user
+        # if clearance, allow editing other profiles
+        @crew.update(crew_params)
+        if @crew.save
+            redirect_to crew_path(@crew)
+        else
+            redirect_to edit_crew_path(@crew), error: "There was an error"
+        end
+    end
+
     private
 
     def crew_params

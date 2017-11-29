@@ -1,6 +1,7 @@
 <div class="container">
   <div class="col-md-8 col-md-offset-2">
-    <h2>Welcome, <%= @crew.rank %> <%= @crew.name %></h2>
+    
+    <h2>Welcome, <%= @crew.formal_title %></h2>
 
     <div class="content">
       <h3>Directory</h3>
@@ -15,7 +16,7 @@
       <h3>Menu</h3>
       <ul>
         <li><%= link_to "Log Out", logout_path, data: { confirm: 'Log Out?' } %></li>
-        <li><%= link_to "Edit Profile", edit_crew_path(@current_user) %></li>
+        <li><%= link_to "Edit Profile", edit_crew_path(current_user) %></li>
       </ul>
     </div>
 
