@@ -14,8 +14,7 @@ class CrewsController < ApplicationController
             # TO DO: session[:crew_id] = @crew.id
             redirect_to crew_path(@crew), notice: "Crew sign up was successful."
         else
-            redirect_to new_crew_path, notice: "There was an error"
-            # TO DO: more meaningful error message needed
+            redirect_to new_crew_path, error: "Error: #{@crew.errors.full_messages.join(", ")}"
         end
     end
 
@@ -35,7 +34,7 @@ class CrewsController < ApplicationController
         if @crew.save
             redirect_to crew_path(@crew)
         else
-            redirect_to edit_crew_path(@crew), error: "There was an error"
+            redirect_to edit_crew_path(@crew), error: "Error: #{@crew.errors.full_messages.join(", ")}"
         end
     end
 

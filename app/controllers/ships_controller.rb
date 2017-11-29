@@ -28,7 +28,7 @@ class ShipsController < ApplicationController
         if @ship.update(ship_params)
             redirect_to ship_path(@ship)
         else
-            redirect_to edit_ship_path(@ship), error: "There was an error"
+            redirect_to edit_ship_path(@ship), error: "Error: #{@ship.errors.full_messages.join(", ")}"
         end
     end
 

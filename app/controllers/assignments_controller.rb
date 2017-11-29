@@ -7,14 +7,17 @@ class AssignmentsController < ApplicationController
 
     def new
         @assignment = Assignment.new
+        @ship = Ship.find_by(id: params[:id])
     end
 
     def create
+        @ship = Ship.find_by(id: params[:id])
         @assignment = Assignment.new(assignment_params)
+        byebug
         if @assignment.save
             redirect_to assignment_path(@assignment)
         else
-            redirect_to new_assignment_path, error: "There was an error"
+            redirect_to new_assignment_path, alert: "Error: #{@assignment.errors.full_messages.join(", ")}"
         end
     end
 
