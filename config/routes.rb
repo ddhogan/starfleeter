@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   resources :crews
   
-  resources :assignments
+  # resources :assignments
   
   # ships_fastest_path
   get '/ships/fastest' => 'ships#fastest'

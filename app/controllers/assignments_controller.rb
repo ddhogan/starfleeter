@@ -6,27 +6,22 @@ class AssignmentsController < ApplicationController
     end
 
     def new
-        @assignment = Assignment.new
-        @ship = Ship.find_by(id: params[:id])
+        @assignment = Assignment.new(ship_id: params[:ship_id])
     end
 
     def create
-        @ship = Ship.find_by(id: params[:id])
-        @assignment = Assignment.new(assignment_params)
-        byebug
+        @assignment = Assignment.create(assignment_params)
         if @assignment.save
-            redirect_to assignment_path(@assignment)
+            redirect_to ship_assignment_path(@assignment)
         else
-            redirect_to new_assignment_path, alert: "Error: #{@assignment.errors.full_messages.join(", ")}"
+            redirect_to new_ship_assignment_path, alert: "Error: #{@assignment.errors.full_messages.join(", ")}"
         end
     end
 
     def show
         if @assignment
-            @ship = @assignment.ship
-            @crews = @ship.crews
+            render :show   
         else
-            @ship = Ship.find_by(id: params[:id])
             redirect_to new_ship_assignment_path, notice: "That ship does not currently have an assignment, you can create one here."
         end
     end
@@ -35,9 +30,18 @@ class AssignmentsController < ApplicationController
     end
 
     def update
+        @assignment.update(assignment_params)
+        if @assignment.save
+            redirect_to ship_assignment_path(assignment)
+        else
+            redirect_to edit_ship_assignment_path(assignment), alert: "Error: #{@assignment.errors.full_messages.join(", ")}"
+        end
     end
 
     def destroy
+        @assignment.destroy
+        flash[:notice] = "Assignment deleted."
+        redirect_to ships_path
     end
 
     
