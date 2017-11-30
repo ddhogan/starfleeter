@@ -6,23 +6,26 @@ class AssignmentsController < ApplicationController
     end
 
     def new
+        @ship = Ship.find_by(id: params[:ship_id])
         @assignment = Assignment.new(ship_id: params[:ship_id])
     end
 
     def create
-        @assignment = Assignment.create(assignment_params)
+        @assignment = Ship.assignments.new(assignment_params)
         if @assignment.save
-            redirect_to ship_assignment_path(@assignment)
+            redirect_to ship_assignment_path(@ship,     @assignment)
         else
             redirect_to new_ship_assignment_path, alert: "Error: #{@assignment.errors.full_messages.join(", ")}"
         end
     end
 
     def show
+        @ship = Ship.find_by(id: params[:ship_id])
+        @assignment = Assignment.find_by(:ship_id => params[:ship_id], :id => params[:id])
         if @assignment
             render :show   
         else
-            redirect_to new_ship_assignment_path, notice: "That ship does not currently have an assignment, you can create one here."
+            redirect_to new_ship_assignment_path, notice: "That ship does not currently have an assignment, create one here."
         end
     end
 
@@ -52,6 +55,7 @@ class AssignmentsController < ApplicationController
     end
     
     def set_assignment
-        @assignment = Assignment.find_by(id: params[:id])
+        @ship = Ship.find_by(id: params[:ship_id])
+        @assignment = Assignment.find_by(:ship_id => params[:ship_id], :id => params[:id])
     end
 end

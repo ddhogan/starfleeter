@@ -1,4 +1,4 @@
-<%= form_for @assignment do |f| %>
+<%= form_for [@ship, @assignment] do |f| %>
     <strong><%= f.label :name %></strong>
     <%= f.text_field :name %><br>
     <strong><%= f.label :description %></strong>
