@@ -41,6 +41,6 @@ class CrewsController < ApplicationController
     private
 
     def crew_params
-        params.require(:crew).permit(:name, :rank, :specialty, :clearance, :password, :password_confirmation)
+        params.require(:crew).permit(:name, :rank, :specialty, :clearance, :password, :password_confirmation, :ship_ids => [])
     end
 end
