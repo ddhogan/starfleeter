@@ -13,13 +13,13 @@ class AssignmentsController < ApplicationController
     def create
         @ship = Ship.find_by(id: params[:ship_id])
         @assignment = Assignment.new(ship_id: params[:ship_id])
-        @assignment.save
-        redirect_to ship_assignments_path(@ship)
-        # if @assignment.save
-        #     redirect_to ship_assignment_path(@ship, @assignment)
-        # else
-        #     redirect_to new_ship_assignment_path, alert: "Error: #{@assignment.errors.full_messages.join(", ")}"
-        # end
+        # @assignment.save
+        # redirect_to ship_assignments_path(@ship)
+        if @assignment.save
+            redirect_to ship_assignments_path(@ship)
+        else
+            redirect_to new_ship_assignment_path, alert: "Error: #{@assignment.errors.full_messages.join(", ")}"
+        end
     end
 
     def show
