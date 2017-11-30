@@ -11,7 +11,8 @@ class AssignmentsController < ApplicationController
     end
 
     def create
-        @assignment = Ship.assignments.new(assignment_params)
+        @ship = Ship.find_by(id: params[:ship_id])
+        @assignment = Assignment.new(ship_id: params[:ship_id])
         if @assignment.save
             redirect_to ship_assignment_path(@ship,     @assignment)
         else
