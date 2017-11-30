@@ -1,5 +1,5 @@
 class AssignmentsController < ApplicationController
-    before_action :set_ship, only: [:new, :create, :edit, :update, :destroy]
+    before_action :set_ship, only: [:new, :show, :create, :edit, :update, :destroy]
     before_action :set_assignment, only: [:edit, :update, :destroy]
 
     def index
@@ -20,10 +20,9 @@ class AssignmentsController < ApplicationController
     end
 
     def show
-        @assignment = Assignment.find_by(:ship_id => params[:ship_id]) #don't change this, it's different
-        if @assignment
-            set_ship
-            @crews = @ship.crews.all #this works too, don't touch
+        # @assignment = Assignment.find_by(:ship_id => params[:ship_id])
+        @assignments = @ship.assignments
+        if @assignments
             render :show   
         else
             redirect_to new_ship_assignment_path, notice: "That ship does not currently have an assignment, create one here."

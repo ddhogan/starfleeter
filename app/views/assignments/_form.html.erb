@@ -1,11 +1,16 @@
 <%= form_for([@ship, @assignment]) do |f| %>
+    
     <strong><%= f.label :name %></strong>
     <%= f.text_field :name %><br>
+    
     <strong><%= f.label :description %></strong>
     <%= f.text_field :description %><br></br>
+    
     <strong><%= f.label :ship_id %></strong><br>
     <%= f.collection_check_boxes :ship_id, Ship.all, :id, :name %><br></br>
+    
     <strong><%= f.label :crew_id %></strong><br>
     <%= f.collection_check_boxes :crew_id, Crew.all, :id, :name %><br>
+    
     <%= f.submit %>
 <% end %>

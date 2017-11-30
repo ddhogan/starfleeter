@@ -1,12 +1,10 @@
-<h2><%= @ship.name %>'s current crew</h2>
-<ul>
-<% @crews.each do |c| %>
-    <li><%= c.rank %> <%= c.name %></li>
-<% end %>
-</ul>
-<br></br>
+<h1>List of this Ship's assignments:</h1>
 
-these buttons need to be next to each crew member since they each have a different assignment id
-<p><%= link_to "Edit", edit_ship_assignment_path(@assignment) %></p>
-<%= form_tag ship_assignment_path(@assignment), method: "delete" %>
-<%= submit_tag "Delete assignment" %>
+<% @assignments.each do |a| %>
+    <div>
+    Assignment Name: <%= a.name %><br>
+    Assignment Description: <%= a.description %><br>
+    Assignment Ship ID: <%= a.ship_id %><br>
+    Assignment Crew ID: <%= a.crew_id %><br></br>
+    </div>
+<% end %>

@@ -19,6 +19,7 @@ class ShipsController < ApplicationController
     end
 
     def show
+        @crews = @ship.crews
     end
 
     def edit
