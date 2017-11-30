@@ -23,9 +23,10 @@ class AssignmentsController < ApplicationController
     end
 
     def show
-        @ship = Ship.find_by(id: params[:ship_id])
-        # @assignment = Assignment.find_by(:ship_id => params[:ship_id], :id => params[:id])
+        @assignment = Assignment.find_by(:ship_id => params[:ship_id]) #don't change this, it got the show the initiate
         if @assignment
+            @ship = Ship.find_by(id: params[:ship_id])
+            @crews = @ship.crews.all #this works too, don't touch
             render :show   
         else
             redirect_to new_ship_assignment_path, notice: "That ship does not currently have an assignment, create one here."
@@ -33,6 +34,7 @@ class AssignmentsController < ApplicationController
     end
 
     def edit
+        @ship = Ship.find_by(id: params[:ship_id])
     end
 
     def update
