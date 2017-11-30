@@ -5,6 +5,8 @@
 <% end %>
 </ul>
 <br></br>
+
+these buttons need to be next to each crew member since they each have a different assignment id
 <p><%= link_to "Edit", edit_ship_assignment_path(@assignment) %></p>
 <%= form_tag ship_assignment_path(@assignment), method: "delete" %>
 <%= submit_tag "Delete assignment" %>

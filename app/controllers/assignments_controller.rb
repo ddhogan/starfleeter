@@ -1,17 +1,16 @@
 class AssignmentsController < ApplicationController
-    before_action :set_assignment, only: [:show, :edit, :update, :destroy]
+    before_action :set_ship, only: [:new, :create, :edit, :update, :destroy]
+    before_action :set_assignment, only: [:edit, :update, :destroy]
 
     def index
         @assignments = Assignment.all
     end
 
     def new
-        @ship = Ship.find_by(id: params[:ship_id])
         @assignment = Assignment.new(ship_id: params[:ship_id])
     end
 
     def create
-        @ship = Ship.find_by(id: params[:ship_id])
         @assignment = Assignment.new(ship_id: params[:ship_id])
         # @assignment.save
         # redirect_to ship_assignments_path(@ship)
@@ -23,9 +22,9 @@ class AssignmentsController < ApplicationController
     end
 
     def show
-        @assignment = Assignment.find_by(:ship_id => params[:ship_id]) #don't change this, it got the show the initiate
+        @assignment = Assignment.find_by(:ship_id => params[:ship_id]) #don't change this, it's different
         if @assignment
-            @ship = Ship.find_by(id: params[:ship_id])
+            set_ship
             @crews = @ship.crews.all #this works too, don't touch
             render :show   
         else
@@ -34,7 +33,6 @@ class AssignmentsController < ApplicationController
     end
 
     def edit
-        @ship = Ship.find_by(id: params[:ship_id])
     end
 
     def update
@@ -60,7 +58,10 @@ class AssignmentsController < ApplicationController
     end
     
     def set_assignment
-        @ship = Ship.find_by(id: params[:ship_id])
         @assignment = Assignment.find_by(:ship_id => params[:ship_id], :id => params[:id])
+    end
+
+    def set_ship
+        @ship = Ship.find_by(id: params[:ship_id])
     end
 end
