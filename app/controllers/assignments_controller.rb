@@ -11,7 +11,7 @@ class AssignmentsController < ApplicationController
     end
 
     def create
-        @assignment = Assignment.new(ship_id: params[:ship_id])
+        @assignment = Assignment.new(assignment_params)
         if @assignment.save
             redirect_to ship_assignments_path(@ship)
         else
@@ -32,11 +32,11 @@ class AssignmentsController < ApplicationController
     end
 
     def update
-        @assignment.update(assignment_params)
-        if @assignment.save
-            redirect_to ship_assignment_path(assignment)
+        
+        if @assignment.update(assignment_params)
+            redirect_to ship_assignment_path(@assignment)
         else
-            redirect_to edit_ship_assignment_path(assignment), alert: "Error: #{@assignment.errors.full_messages.join(", ")}"
+            redirect_to edit_ship_assignment_path(@assignment), alert: "Error: #{@assignment.errors.full_messages.join(", ")}"
         end
     end
 

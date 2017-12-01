@@ -7,10 +7,18 @@
     <%= f.text_field :description %><br></br>
     
     <strong><%= f.label :ship_id %></strong><br>
-    <%= f.collection_check_boxes :ship_id, Ship.all, :id, :name %><br></br>
-    
+    <!-- <%= f.collection_check_boxes :ship_id, Ship.all, :id, :name %><br></br> -->
+    <%= f.select(:ship_id) do %>
+        <%= options_from_collection_for_select(Ship.all, :id, :name) %>
+    <% end %>
+
+    <br></br>
     <strong><%= f.label :crew_id %></strong><br>
-    <%= f.collection_check_boxes :crew_id, Crew.all, :id, :name %><br>
+    <!--<%= f.collection_check_boxes :crew_id, Crew.all, :id, :name %><br> -->
+    <%= f.select(:crew_id) do %>
+        <%= options_from_collection_for_select(Crew.all, :id, :name) %>
+    <% end %>
     
+    <br></br>
     <%= f.submit %>
 <% end %>
