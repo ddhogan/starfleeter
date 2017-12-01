@@ -16,8 +16,6 @@ Rails.application.routes.draw do
 
   resources :crews
   
-  get '/ships/assignments' => 'assignments#index'
-  
   # ships_fastest_path
   get '/ships/fastest' => 'ships#fastest'
   
@@ -25,6 +23,8 @@ Rails.application.routes.draw do
   resources :ships do
     resources :assignments
   end
+
+  resources :assignments, only: [:index, :new, :create, :edit, :update, :destroy]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

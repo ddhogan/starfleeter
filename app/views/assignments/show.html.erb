@@ -1,10 +1,9 @@
-<h1>List of this Ship's assignments:</h1>
+<h1>Assignment</h1>
 
-<% @assignments.each do |a| %>
-    <div>
-    Assignment Name: <%= a.name %><br>
-    Assignment Description: <%= a.description %><br>
-    Assignment Ship ID: <%= a.ship_id %><br>
-    Assignment Crew ID: <%= a.crew_id %><br></br>
-    </div>
-<% end %>
+Assignment Name: <%= @assignment.name %><br>
+Assignment Description: <%= @assignment.description %><br>
+Assignment Ship ID: <%= @assignment.ship_id %><br>
+Assignment Crew ID: <%= @assignment.crew_id %><br>
+<br></br>
+<p><%= link_to "Edit this assignment", edit_ship_assignment_path(@assignment.ship_id) %></p>
+<p><%= link_to "Delete", @assignment, method: :delete, data: { confirm: "Confirm Deleting?" } %></p>

@@ -1,6 +1,8 @@
-<h1>Current assignment log:</h1>
+<h1>All assignments for all ships:</h1>
 <ul>
 <% @assignments.each do |a| %>
-    <li><%= link_to "#{a.crew.rank} #{a.crew.name} is assigned to the #{a.ship.name}", ship_assignment_path(a.ship, a) %></li>
+    <li><%= a.crew.formal_title %> is <%= link_to "assigned", ship_assignment_path(a.ship, a) %> to the <%= a.ship.name %>.</li>
 <% end %>
 </ul>
+<br>
+<%= link_to "Create New Assignment", new_assignment_path %>

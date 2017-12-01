@@ -1,20 +1,22 @@
 <h1>Ship Information</h1>
+
 <h2><%= @ship.name %></h2>
 <ul>
     <li>Type/class: <%= @ship.type_class %></li>
     <li>Warp Factor: <%= @ship.warp_factor %></li>
     <li>Crew Complement Size: <%= @ship.complement %></li>
     <li>Notes: <%= @ship.note if @ship.note %></li>
-</ul>
-<br>
+</ul><br>
+
 <h3>Current crew</h3>
 <ul>
 <% @crews.each do |c| %>
-    <li><%= c.formal_title %></li>
+    <li><%= link_to "#{c.formal_title}", ship_assignment_path(@ship, c) %></li>
 <% end %>
 </ul>
+<br>
+<p><%= link_to "Add assignment", new_ship_assignment_path(@ship) %></p>
 <br></br>
 
 
-<p><%= link_to "View Current Assignments", ship_assignment_path(@ship) %></p>
-<p><%= link_to "Edit this ship's info", edit_ship_path(@ship) %></p>
+<p><%= link_to "Edit this ship's info", edit_ship_path(@ship) %> | <%= link_to "Delete Ship", @ship, method: :delete, data: { confirm: "Confirm Deleting?" }  %></p>

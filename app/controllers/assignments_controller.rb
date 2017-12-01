@@ -20,9 +20,8 @@ class AssignmentsController < ApplicationController
     end
 
     def show
-        # @assignment = Assignment.find_by(:ship_id => params[:ship_id])
-        @assignments = @ship.assignments
-        if @assignments
+        @assignment = Assignment.find_by(:ship_id => params[:ship_id])
+        if @assignment
             render :show   
         else
             redirect_to new_ship_assignment_path, notice: "That ship does not currently have an assignment, create one here."
@@ -44,7 +43,7 @@ class AssignmentsController < ApplicationController
     def destroy
         @assignment.destroy
         flash[:notice] = "Assignment deleted."
-        redirect_to ships_path
+        redirect_to assignments_path
     end
 
     
@@ -55,7 +54,7 @@ class AssignmentsController < ApplicationController
     end
     
     def set_assignment
-        @assignment = Assignment.find_by(:ship_id => params[:ship_id], :id => params[:id])
+        @assignment = Assignment.find_by(:id => params[:id])
     end
 
     def set_ship

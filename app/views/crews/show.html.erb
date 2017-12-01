@@ -1,3 +1,12 @@
-<h1>Personnel file: <%= "#{@crew.formal_title}" %></h1>
+<h1>Personnel file: <%= "#{@crew.name}" %></h1>
 
-<p>more stuff here</p>
+<div>
+    <ul>
+        <li>Rank: <%= @crew.rank %></li>
+        <li>Admin: <%= @crew.clearance %></li>
+        <li>Specialty: <%= @crew.specialty %></li>
+        <li>Link to current assignment(s)</li>
+    </ul>
+</div>
+<br>
+<p><%= link_to "Edit", edit_crew_path(@crew) %> | <%= link_to "Delete", @crew, method: :delete, data: { confirm: "Confirm Deleting?" } %></p>

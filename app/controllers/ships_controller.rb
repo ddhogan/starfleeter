@@ -37,6 +37,12 @@ class ShipsController < ApplicationController
         @ship = Ship.fastest
     end
 
+    def destroy
+        @ship.destroy
+        flash[:notice] = "Ship record deleted."
+        redirect_to ships_path
+    end
+
     
     private
 

@@ -1,6 +1,6 @@
 <h1>Current Crew List:</h1>
 <ul>
 <% @crews.each do |c| %>
-    <li><%= "#{c.rank} #{c.name}" %></li>
+    <li><%= "#{c.rank} #{c.name}" %> <%= link_to "Profile", crew_path(c) %></li>
 <% end %>
 </ul>
