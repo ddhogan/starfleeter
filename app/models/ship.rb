@@ -13,12 +13,10 @@ class Ship < ApplicationRecord
     end
 
     def crews_attributes=(crews_attributes)
-        crews_attributes.values.each do |c|
-            if c[:name].present?
-                crew = Crew.find_or_create_by(c)
-                if !self.crews.include?(crew)
-                    self.assignment.build(:crew => crew)
-                end
+        crews_attributes.values.each do |crews_attribute|
+            crew = Crew.find_or_create_by(:id => crews_attribute[:crew_id])
+            if !self.crews.include?(crew)
+                self.assignment.build(:crew => crew)
             end
         end
     end
