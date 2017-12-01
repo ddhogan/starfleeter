@@ -1,6 +1,6 @@
 class AssignmentsController < ApplicationController
     before_action :set_ship, only: [:new, :show, :create, :edit, :update, :destroy]
-    before_action :set_assignment, only: [:edit, :update, :destroy]
+    before_action :set_assignment, only: [:destroy]
 
     def index
         @assignments = Assignment.all
@@ -29,10 +29,11 @@ class AssignmentsController < ApplicationController
     end
 
     def edit
+        @assignment = Assignment.find_by(:ship_id => params[:ship_id], :id => params[:id])
     end
 
     def update
-        
+        @assignment = Assignment.find_by(:ship_id => params[:ship_id], :id => params[:id])
         if @assignment.update(assignment_params)
             redirect_to ship_assignment_path(@assignment)
         else
