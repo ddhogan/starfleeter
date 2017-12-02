@@ -13,14 +13,14 @@ class AssignmentsController < ApplicationController
     def create
         @assignment = Assignment.new(assignment_params)
         if @assignment.save
-            redirect_to ship_path(params[:assignment][:ship_id])
+            redirect_to ship_assignment_path(:ship_id => params[:assignment][:ship_id], :id => @assignment.id)
         else
             redirect_to new_ship_assignment_path, alert: "Error: #{@assignment.errors.full_messages.join(", ")}"
         end
     end
 
     def show
-        @assignment = Assignment.find_by(:ship_id => params[:ship_id])
+        @assignment = Assignment.find_by(:ship_id => params[:ship_id], :id => params[:id])
         if @assignment
             render :show   
         else
@@ -29,13 +29,13 @@ class AssignmentsController < ApplicationController
     end
 
     def edit
-        @assignment = Assignment.find_by(:ship_id => params[:ship_id], :id => params[:id])
+        @assignment = Assignment.find_by(:ship_id => params[:ship_id], :crew_id => params[:id])  # changed the ':id' to ':crew_id' in this line (and in line 36) because that's what the url is doing for some reason
     end
 
     def update
         @assignment = Assignment.find_by(:ship_id => params[:ship_id], :id => params[:id])
         if @assignment.update(assignment_params)
-            redirect_to ship_assignment_path(@assignment)
+            redirect_to ship_assignment_path(params[:assignment][:ship_id])
         else
             redirect_to edit_ship_assignment_path(@assignment), alert: "Error: #{@assignment.errors.full_messages.join(", ")}"
         end
