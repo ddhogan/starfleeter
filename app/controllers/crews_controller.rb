@@ -28,8 +28,9 @@ class CrewsController < ApplicationController
             # Admins can edit anyone's profile
             @crew = Crew.find_by(id: params[:id])
         else
-            # Everyone else can only edit their own, so it redirects to their show page (redirecting to their edit page was problematic)
-            redirect_to crew_path(current_user.id), notice: "Non-classified crew can only edit their own profile"
+            # Everyone else can only edit their own
+            @crew = Crew.find_by(id: current_user.id)
+            render :edit, notice: "Non-classified crew can only edit their own profile"
         end
     end
 
