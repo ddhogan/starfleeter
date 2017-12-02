@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
     end
 
     def home
-        @crew = Crew.find_by(id: session[:crew_id])
+        @crew = Crew.find_by(:id => session[:crew_id])
     end
 
     def new
