@@ -12,11 +12,11 @@ class Ship < ApplicationRecord
         order(:warp_factor).last
     end
 
-    def assignments_attributes=(assignment_hashes)
-        assignment_hashes.values.each do |assignments_attributes|
-            assignment = Assignment.find_or_create_by(assignments_attributes)
+    def assignments_attributes=(assignments_attributes)
+        assignments_attributes.values.each do |assignment_attributes|
+            assignment = Assignment.find_or_create_by(assignment_attributes)
             if !self.assignments.include?(assignment)
-                self.assignments.build(:assignment => assignment)
+                self.assignments.build(assignment_attributes)
             end
         end
     end

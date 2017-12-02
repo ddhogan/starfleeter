@@ -13,10 +13,10 @@ Specs:
     * assignment name and description
 - [X] ~~*Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item)*~~
     * Crew name must be unique within the scope of a rank, Ship warp_factor must be a number
-- [X] ~~*Include a class level ActiveRecord scope method (model object & class method name and **URL to see the working feature** e.g. User.most_recipes URL: /users/most_recipes)*~~
+- [X] ~~*Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)*~~
     * `/ships/fastest`
-- [X] ~~*Include a nested form writing to an associated model using a custom attribute writer (form URL, model name e.g. /recipe/new, Item)*~~
-    * 
+- [ ] Include a nested form writing to an associated model using a custom attribute writer (form URL, model name e.g. /recipe/new, Item)
+    * Hmmmm
 - [X] ~~*Include signup (how e.g. Devise)*~~
     * bcrypt
 - [X] ~~*Include login (how e.g. Devise)*~~

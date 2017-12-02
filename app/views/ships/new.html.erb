@@ -11,9 +11,22 @@
     <%= f.number_field :complement %><br>
     <%= f.label :note %>
     <%= f.text_area :note %><br><br>
+    
     <p>Create Assignment?</p>
-    
-    
-    <br></br>
+    <%= f.fields_for :assignments, @ship.assignments.build do |a| %>
+        <%= a.label :name %>
+        <%= a.text_field :name %><br>
+
+        <%= a.label :description %>
+        <%= a.text_field :description %><br>
+
+        <%= a.select(:crew_id) do %>
+            <%= options_from_collection_for_select(Crew.all, :id, :name) %>
+        <% end %>
+        <br><br>
+
+        <%= a.hidden_field :ship_id, value: @ship.id %>
+    <% end %>
+
     <%= f.submit %>
 <% end %>
