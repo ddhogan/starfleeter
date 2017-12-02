@@ -21,6 +21,9 @@
       <% if request.path != "/home" && request.path != "/" %>
         <a href="/home"><button>Home</button></a>
       <% end %>
+      <% if logged_in? %>
+        <a href="/logout" onclick="return confirm('Log Out?');"><button>Log Out</button></a>
+      <% end %>
         <small>&copy; 2017 <strong>Starfleeter</strong></small>
       </footer>
     </div>
