@@ -48,7 +48,7 @@ class ShipsController < ApplicationController
     private
 
     def ship_params
-        params.require(:ship).permit(:name, :type_class, :warp_factor, :complement, :note, :crews_attributes=>[:crew_id])
+        params.require(:ship).permit(:name, :type_class, :warp_factor, :complement, :note, :assignment_ids => [], :assignments_attributes=>[:crew_id, :ship_id, :name, :description])
     end
 
     def set_ship

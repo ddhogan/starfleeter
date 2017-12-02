@@ -1,2 +1,19 @@
 <h1>New Ship Form</h1>
-<%= render 'form' %>
+
+<%= form_for @ship do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %><br>
+    <%= f.label :type_class %>
+    <%= f.text_field :type_class %><br>
+    <%= f.label :warp_factor %>
+    <%= f.number_field :warp_factor %><br>
+    <%= f.label :complement %>
+    <%= f.number_field :complement %><br>
+    <%= f.label :note %>
+    <%= f.text_area :note %><br><br>
+    <p>Create Assignment?</p>
+    
+    
+    <br></br>
+    <%= f.submit %>
+<% end %>
