@@ -1,5 +1,5 @@
 class Ship < ApplicationRecord
-    has_many :assignments
+    has_many :assignments, dependent: :destroy
     has_many :crews, through: :assignments
 
     validates :name, presence: true
