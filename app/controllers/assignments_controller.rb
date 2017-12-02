@@ -13,7 +13,7 @@ class AssignmentsController < ApplicationController
     def create
         @assignment = Assignment.new(assignment_params)
         if @assignment.save
-            redirect_to ship_assignments_path(@ship)
+            redirect_to ship_path(params[:assignment][:ship_id])
         else
             redirect_to new_ship_assignment_path, alert: "Error: #{@assignment.errors.full_messages.join(", ")}"
         end
