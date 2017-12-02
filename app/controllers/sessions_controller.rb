@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-    # TO DO: set action logged in before viewing everything except home
+    before_action :require_login, only: [:logout]
 
     def welcome
     end

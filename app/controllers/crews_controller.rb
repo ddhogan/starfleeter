@@ -1,5 +1,6 @@
 class CrewsController < ApplicationController
-    
+    before_action :require_login, except: [:new, :create]
+
     def index
         @crews = Crew.all
     end
