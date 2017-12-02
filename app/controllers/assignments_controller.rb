@@ -1,6 +1,6 @@
 class AssignmentsController < ApplicationController
-    before_action :set_ship, only: [:new, :show, :create, :edit, :update, :destroy]
-    before_action :set_assignment, only: [:destroy]
+    before_action :set_ship, only: [:new, :create, :show, :edit, :update]
+    before_action :set_assignment, only: [:show, :edit, :update]
 
     def index
         @assignments = Assignment.all
@@ -20,7 +20,6 @@ class AssignmentsController < ApplicationController
     end
 
     def show
-        @assignment = Assignment.find_by(:ship_id => params[:ship_id], :id => params[:id])
         if @assignment
             render :show   
         else
@@ -29,12 +28,9 @@ class AssignmentsController < ApplicationController
     end
 
     def edit
-        # @assignment = Assignment.find_by(:ship_id => params[:ship_id], :crew_id => params[:id])  # changed the ':id' to ':crew_id' in this line (and in line 36) because that's what the url is doing for some reason
-        @assignment = Assignment.find_by(:ship_id => params[:ship_id], :id => params[:id])
     end
 
     def update
-        @assignment = Assignment.find_by(:ship_id => params[:ship_id], :id => params[:id])
         if @assignment.update(assignment_params)
             redirect_to ship_assignment_path(params[:assignment][:ship_id])
         else
@@ -43,7 +39,7 @@ class AssignmentsController < ApplicationController
     end
 
     def destroy
-        @assignment.destroy
+        Assignment.find_by(:id => params[:id]).destroy
         flash[:notice] = "Assignment deleted."
         redirect_to assignments_path
     end
@@ -56,7 +52,7 @@ class AssignmentsController < ApplicationController
     end
     
     def set_assignment
-        @assignment = Assignment.find_by(:id => params[:id])
+        @assignment = Assignment.find_by(:ship_id => params[:ship_id], :id => params[:id])
     end
 
     def set_ship
