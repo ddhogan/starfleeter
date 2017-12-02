@@ -15,8 +15,8 @@ Specs:
     * Crew name must be unique within the scope of a rank, Ship warp_factor must be a number
 - [X] ~~*Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)*~~
     * `/ships/fastest`
-- [ ] Include a nested form writing to an associated model using a custom attribute writer (form URL, model name e.g. /recipe/new, Item)
-    * Hmmmm
+- [X] ~~*Include a nested form writing to an associated model using a custom attribute writer (form URL, model name e.g. /recipe/new, Item)*~~
+    * You can create a new assignment in the same form as creating a new ship: `/ships/new`
 - [X] ~~*Include signup (how e.g. Devise)*~~
     * bcrypt
 - [X] ~~*Include login (how e.g. Devise)*~~
