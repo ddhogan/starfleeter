@@ -5,7 +5,12 @@
         <li>Rank: <%= @crew.rank %></li>
         <li>Admin: <%= @crew.clearance %></li>
         <li>Specialty: <%= @crew.specialty %></li>
-        <li>Link to current assignment(s)</li>
+        <li>Current assignment(s):
+            <% if @crew.assignments %>
+                <% @crew.assignments.each do |a| %>
+                    <%= link_to a.name, ship_assignment_path(a.ship, a) %>
+                <% end %>
+            <% end %></li>
     </ul>
 </div>
 <br>
