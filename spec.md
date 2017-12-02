@@ -19,6 +19,6 @@ Specs:
 
 Confirm:
 - [X] ~~*The application is pretty DRY*~~
-- [ ] Limited logic in controllers
+- [X] ~~*Limited logic in controllers*~~  <-- for the most part..
 - [X] ~~*Views use helper methods if appropriate*~~
 - [X] ~~*Views use partials if appropriate*~~
