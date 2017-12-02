@@ -11,7 +11,8 @@
 <h3>Current crew</h3>
 <ul>
 <% @crews.each do |c| %>
-    <li><%= link_to "#{c.formal_title}", ship_assignment_path(@ship, c) %></li>
+    <% a = Assignment.find_by(:ship_id => @ship.id, :crew_id => c.id) %>
+    <li><%= link_to "#{c.formal_title}", ship_assignment_path(@ship, a) %></li>
 <% end %>
 </ul>
 <br>

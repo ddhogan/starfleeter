@@ -29,7 +29,8 @@ class AssignmentsController < ApplicationController
     end
 
     def edit
-        @assignment = Assignment.find_by(:ship_id => params[:ship_id], :crew_id => params[:id])  # changed the ':id' to ':crew_id' in this line (and in line 36) because that's what the url is doing for some reason
+        # @assignment = Assignment.find_by(:ship_id => params[:ship_id], :crew_id => params[:id])  # changed the ':id' to ':crew_id' in this line (and in line 36) because that's what the url is doing for some reason
+        @assignment = Assignment.find_by(:ship_id => params[:ship_id], :id => params[:id])
     end
 
     def update
