@@ -24,11 +24,22 @@ class CrewsController < ApplicationController
     end
 
     def edit
-        @crew = current_user
+        if current_user.clearance == true
+            # Admins can edit anyone's profile
+            @crew = Crew.find_by(id: params[:id])
+        else
+            # Everyone else can only edit their own, so it redirects to their show page (redirecting to their edit page was problematic)
+            redirect_to crew_path(current_user.id), notice: "Non-classified crew can only edit their own profile"
+        end
     end
 
     def update
-        @crew = current_user
+        if current_user.clearance == true
+            @crew = Crew.find_by(id: params[:id])
+        else
+            @crew = current_user
+        end
+        
         @crew.update(crew_params)
         if @crew.save
             redirect_to crew_path(@crew)
@@ -38,9 +49,13 @@ class CrewsController < ApplicationController
     end
 
     def destroy
-        Crew.find_by(:id => params[:id]).destroy
-        flash[:notice] = "Crew record deleted."
-        redirect_to crews_path
+        if current_user.clearance == true
+            Crew.find_by(:id => params[:id]).destroy
+            flash[:notice] = "Crew record deleted."
+            redirect_to crews_path
+        else
+            redirect_to crews_path, error: "This action requires clearance"
+        end
     end
 
     private
