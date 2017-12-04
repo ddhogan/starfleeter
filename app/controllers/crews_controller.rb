@@ -50,12 +50,18 @@ class CrewsController < ApplicationController
     end
 
     def destroy
-        if current_user.clearance == true
-            Crew.find_by(:id => params[:id]).destroy
-            flash[:notice] = "Crew record deleted."
-            redirect_to crews_path
-        else
-            redirect_to crews_path, error: "This action requires clearance"
+        if current_user.clearance == true   # only admins can delete crew
+            if Crew.find_by(:id => params[:id]) == current_user
+                Crew.find_by(:id => params[:id]).destroy
+                session.clear   # if admin deletes themself, they get logged out
+                redirect_to '/'
+            elsif Crew.find_by(:id => params[:id]).destroy
+                Crew.find_by(:id => params[:id]).destroy
+                flash[:notice] = "Crew record deleted."
+                redirect_to crews_path
+            else
+                redirect_to crews_path, error: "This action requires clearance"
+            end
         end
     end
 
