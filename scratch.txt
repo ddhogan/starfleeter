@@ -1,0 +1,22 @@
+Parameters: {"utf8"=>"✓", "authenticity_token"=>"9RAXaCWrq3XN2Bpy0pYk4dRfjODzRx0zYeR5SCmkoCcZzlId+9GRQs7lck01QvQ9npyGVTVJPgql8BEclOAGAw==",
+"ship"=>
+    {"name"=>"delete this ship", 
+    "type_class"=>"", 
+    "warp_factor"=>"6", 
+    "complement"=>"", 
+    "note"=>"no crew yet!", 
+    "assignments_attributes"=>
+        {"0"=>
+            {"crew_id"=>"", 
+            "ship_id"=>"", 
+            "name"=>"",
+            "description"=>""}}}, 
+                "commit"=>"Create Ship"}
+
+
+ship[assignments_attributes][crew_id]
+
+# previous select menu on new ship form
+<%= a.select(:crew_id) do %>
+    <%= options_from_collection_for_select(Crew.all, :id, :name) %>
+<% end %></p>

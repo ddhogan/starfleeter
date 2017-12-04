@@ -15,7 +15,7 @@ class ShipsController < ApplicationController
         if @ship.save
             redirect_to ship_path(@ship)
         else
-            redirect_to new_ship_path
+            redirect_to new_ship_path(@ship), error: "Error: #{@ship.errors.full_messages.join(", ")}"
         end
     end
 

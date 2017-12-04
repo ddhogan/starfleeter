@@ -14,3 +14,11 @@
     <br></br>
     <%= f.submit %>
 <% end %>
+
+<% if @ship.errors.any? %>
+  <div class="error_explanation">
+    <% @ship.errors.full_messages.each do |msg| %>
+      <%= msg %><br>
+    <% end %>
+  </div>
+<% end %>

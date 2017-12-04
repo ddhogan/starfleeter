@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171129190212) do
+ActiveRecord::Schema.define(version: 20171204175240) do
 
   create_table "assignments", force: :cascade do |t|
     t.string "name"
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20171129190212) do
   create_table "ships", force: :cascade do |t|
     t.string "name"
     t.string "type_class"
-    t.integer "warp_factor"
+    t.float "warp_factor"
     t.integer "complement"
     t.string "note"
   end

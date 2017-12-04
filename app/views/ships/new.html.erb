@@ -10,23 +10,27 @@
     <%= f.label :complement %>
     <%= f.number_field :complement %><br>
     <%= f.label :note %>
-    <%= f.text_area :note %><br><br>
+    <%= f.text_area :note %><br></br>
     
     <p>Create Assignment?</p>
     <%= f.fields_for :assignments, @ship.assignments.build do |a| %>
-        <%= a.label :name %>
-        <%= a.text_field :name %><br>
-
-        <%= a.label :description %>
-        <%= a.text_field :description %><br>
-
-        <%= a.select(:crew_id) do %>
-            <%= options_from_collection_for_select(Crew.all, :id, :name) %>
-        <% end %>
-        <br><br>
-
+        
+        <p>Select a crew person:
+        <%= select_tag 'ship[assignments_attributes][0][crew_id]', content_tag(:option,'select one...',:value=>"")+options_from_collection_for_select(Crew.all, :id, :name) %></p>
         <%= a.hidden_field :ship_id, value: @ship.id %>
+        <%= a.label :name, "Assignment Name" %>
+        <%= a.text_field :name %><br>
+        <%= a.label :description %>
+        <%= a.text_field :description %>
     <% end %>
-
+    <br>
     <%= f.submit %>
+<% end %>
+
+<% if @ship.errors.any? %>
+  <div class="error_explanation">
+    <% @ship.errors.full_messages.each do |msg| %>
+      <%= msg %><br>
+    <% end %>
+  </div>
 <% end %>
