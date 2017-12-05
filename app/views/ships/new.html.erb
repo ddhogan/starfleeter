@@ -17,7 +17,9 @@
         
         <p>Select a crew person:
         <%= select_tag 'ship[assignments_attributes][0][crew_id]', content_tag(:option,'select one...',:value=>"")+options_from_collection_for_select(Crew.all, :id, :name) %></p>
+
         <%= a.hidden_field :ship_id, value: @ship.id %>
+
         <%= a.label :name, "Assignment Name" %>
         <%= a.text_field :name %><br>
         <%= a.label :description %>

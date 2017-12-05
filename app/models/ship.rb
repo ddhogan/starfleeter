@@ -11,7 +11,7 @@ class Ship < ApplicationRecord
 
     def assignments_attributes=(assignments_attributes)
         assignments_attributes.values.each do |assignment_attributes|
-            if assignments_attributes[:crew_id] != ""
+            if assignment_attributes[:crew_id] != ""
                 assignment = Assignment.find_or_create_by(assignment_attributes)
                 if !self.assignments.include?(assignment)
                     self.assignments.build(assignment_attributes)
