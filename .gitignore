@@ -24,3 +24,4 @@
 
 # Don't commit secrets!
 .env
+config/secrets.yml

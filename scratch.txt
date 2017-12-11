@@ -20,3 +20,22 @@ ship[assignments_attributes][crew_id]
 <%= a.select(:crew_id) do %>
     <%= options_from_collection_for_select(Crew.all, :id, :name) %>
 <% end %></p>
+
+
+
+'params[:ship][:assignments_attributes][:crew_id]'
+
+<% if 'params[:ship][:assignments_attributes][:crew_id]' %>
+<% end %>
+
+Checkboxes:
+<%= f.collection_check_boxes :crew_id, Crew.all, :id, :name %><br>
+
+or
+<div class="field">
+<%= hidden_field_tag "ship[crew_ids][]", nil %>
+    <% Crew.all.each do |crew| %>
+        <%= check_box_tag "ship[crew_ids][]", crew.id, @ship.crew_ids.include?(crew.id), id: dom_id(crew) %>
+        <%= label_tag dom_id(crew), crew.name %> <br>
+    <% end %>
+</div>
