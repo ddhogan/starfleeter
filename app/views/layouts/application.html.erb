@@ -18,7 +18,7 @@
       <%= yield %>
 
       <footer class="branding">
-      <% if request.path != "/home" && request.path != "/" %>
+      <% if request.path != "/home" && request.path != "/" && request.path != "/login" %>
         <a href="/home"><button>Home</button></a>
       <% end %>
       <% if logged_in? %>
