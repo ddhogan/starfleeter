@@ -29,7 +29,7 @@ localhost:3000
 This was made with Ruby 2.3.4, Rails 5.1.4, and moderate amounts of love.
 
 ### Contributors
-Contributions are welcome =]
+Contributions are welcome, and can be made by either opening an issue or making a pull request to this repo.
 
 ### License
 The full [MIT license](https://github.com/ddhogan/starfleeter/blob/master/LICENSE) can be found in this repo.

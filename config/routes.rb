@@ -14,7 +14,9 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#logout'
  
 
-  resources :crews
+  resources :crews do 
+    resources :ratings, only: [:new, :create, :destroy]
+  end
   
   # ships_fastest_path
   get '/ships/fastest' => 'ships#fastest'
