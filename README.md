@@ -6,6 +6,8 @@
 ## Overview
 This app borrows a similar interface to the database Starfleet is always using on various StarTrek series.  In addition to managing content related to various starships, users can also assign crew to different ships and note the mission type, see what the current fastest ship in the fleet is, and slightly more!
 
+* **[Watch](https://www.youtube.com/watch?v=STRKKznhV9Y)** the tour!
+* Or try it here: https://starfleeter.herokuapp.com/
 ## Installation
 1. Fork and clone this repository, and then within the main directory execute
 ```
