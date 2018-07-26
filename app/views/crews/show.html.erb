@@ -12,29 +12,7 @@
                 <% end %>
             <% end %></li>
         <br>
-        <% if @crew.ratings %>
-            <li>Ratings:
-            <% @crew.ratings.each do |rating| %>
-                <%= rating.rating %> Remove? <%= link_to "Delete", crew_rating_path(@crew, rating), method: :delete, data: {confirm: "Really delete this rating?" } %>.
-            <% end %>
-            </li>
-            
-        <% end %>
     </ul>
 <br>
-    Add a rating:
-    <form action="/crews/<%=@crew.id%>/ratings" method="post">
-        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-        <input id="rating_crew_id" name="rating[crew_id]" type="hidden" value="<%=@crew.id%>" />
-        <label for="rating_rating">Rating:</label>
-        <input id="rating_rating" name="rating[rating]" type="number" />
-        <br>
-        <label for="rating_note">Note:</label>
-        <input id="rating_note" name="rating[note]" type="text" />
-        <br>
-        <input name="submit" type="submit" value="submit" />
-    </form>
-
-
 <br>
 <p><%= link_to "Edit", edit_crew_path(@crew) %> | <%= link_to "Delete", @crew, method: :delete, data: { confirm: "Confirm Deleting?" } %></p>
