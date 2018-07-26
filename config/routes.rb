@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   
   # sign in with Twitter
-  get '/auth/twitter/callback' => 'sessions#create'
+  get '/users/auth/twitter' => 'sessions#create'
+  get '/auth/twitter' => 'sessions#create'
   
   root 'sessions#welcome'
   # home_path
