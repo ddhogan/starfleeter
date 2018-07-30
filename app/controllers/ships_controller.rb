@@ -20,7 +20,12 @@ class ShipsController < ApplicationController
     end
 
     def show
+        @ship = Ship.find_by_id(params[:id])
         @crews = @ship.crews
+        respond_to do |format|
+            format.html { render  :show }
+            format.json { render json: @ship}
+        end
     end
 
     def edit
