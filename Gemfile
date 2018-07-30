@@ -13,6 +13,8 @@ gem 'loofah', '~> 2.2.1'
 gem 'nokogiri', '~> 1.8.2'
 gem 'rails-html-sanitizer', '~> 1.0.4'
 
+gem 'active_model_serializers'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
