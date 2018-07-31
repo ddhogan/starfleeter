@@ -1,6 +1,6 @@
 <h2>The Fleet</h2>
 <div class="content">
-    <ul>
+    <ul id="ships_list">
     <% @ships.each do |s| %>
         <li><%= link_to "#{s.name}", ship_path(s) %></li>
     <% end %>
@@ -14,3 +14,5 @@
         <li><%= link_to "Add a new ship", new_ship_path %></li>
     </ul>
 </div>
+
+<script> getShips(); </script>   
