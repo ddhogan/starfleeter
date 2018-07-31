@@ -4,10 +4,6 @@ class ShipsController < ApplicationController
 
     def index
         @ships = Ship.all
-        # respond_to do |format|
-        #     format.html
-        #     format.json { render json: @ships }
-        # end
         render json: @ships
     end
 
