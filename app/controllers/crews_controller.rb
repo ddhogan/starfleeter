@@ -3,6 +3,7 @@ class CrewsController < ApplicationController
 
     def index
         @crews = Crew.all
+        render json: @crews
     end
     
     def new
