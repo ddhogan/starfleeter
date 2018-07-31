@@ -6,12 +6,14 @@
     <div class="content">
       <h3>Directory</h3>
       <ul>
-        <li><%= link_to "View All Ships", ships_path %></li>
+        <li><button onclick="getShips();">List all Ships</button></li>
         <li><%= link_to "View All Crew", crews_path %></li>
         <li><%= link_to "View All Assignments", assignments_path %></li>
         </ul>
     </div>
-
+    
+    <div id="listArea"></div>
+    
     <div class="sidebar">
       <h3>Menu</h3>
       <ul>
@@ -23,5 +25,4 @@
   </div>
 </div>
 <script>
-  getShips();
 </script>

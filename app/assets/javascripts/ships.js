@@ -10,10 +10,11 @@ class Ship {
 };
 
 function getShips() {
+    let shipList = document.querySelector("#listArea");
     let shipUl = document.createElement("ul");
     shipUl.setAttribute("id", "shipList");
-    let content = document.querySelector(".content");
-    content.appendChild(shipUl);
+    shipList.innerHTML = "<h4>The Fleet</h4>";
+    shipList.appendChild(shipUl);
 
     const requestUrl = "/ships";
     const request = new XMLHttpRequest();
