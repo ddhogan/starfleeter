@@ -26,7 +26,8 @@ function getShips() {
         request.response.forEach(function(item) {
             let ship = new Ship(item);
             let shipLi = document.createElement("li");
-            shipLi.textContent = ship.name;
+            shipLi.innerHTML = 'Name: <a href="/ships/' + ship.id + '">' + ship.name + '</a>, Class: ' + ship.typeClass + ', Warp Factor: ' + ship.warpFactor;
+            // shipLi.textContent = ship.name;
             shipUl.appendChild(shipLi);
         });
     };
