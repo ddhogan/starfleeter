@@ -26,29 +26,24 @@ function getShips() {
         request.response.forEach(function(item) {
             let ship = new Ship(item);
             let shipLi = document.createElement("li");
-            shipLi.innerHTML = 'Name: <a id="'+ ship.id + '" href="#" onclick="getShipInfo();">' + ship.name + '</a>, Class: ' + ship.typeClass + ', Warp Factor: ' + ship.warpFactor;
-            // shipLi.textContent = ship.name;
+            shipLi.innerHTML = 'Name: <a href="#" onclick="getShipInfo(' + ship.id + ');">' + ship.name + '</a>, Class: ' + ship.typeClass + ', Warp Factor: ' + ship.warpFactor + '<br><div id="' + ship.id + '"></div>';
             shipUl.appendChild(shipLi);
         });
     };
 };
 
-function getShipInfo() {
-    let shipLi = document.querySelector("#shipList li a");
-    shipLi.addEventListener('click', function(event) {
-        debugger;
-        shipId = event.target.id;
-        moreInfo = document.createElement("p");
+function getShipInfo(shipId) {
+    let shipNewLi = document.querySelector("#shipList");
+    let moreInfo = document.createElement("p");
         
-        const request = new XMLHttpRequest();
-        const requestUrl = `/ships/${shipId}`;
-        request.open('GET', requestUrl);
-        request.responseType = 'json';
-        request.send();
-        request.onload = function() {
-            let ship = new Ship(request.response);
-            moreInfo.innerHTML = ship.name;
-            shipLI.appendChild(moreInfo);
-        };
-    });
+    const request = new XMLHttpRequest();
+    const requestUrl = "/ships/"+`${shipId}`;
+    request.open('GET', requestUrl);
+    request.responseType = 'json';
+    request.send();
+    request.onload = function() {
+        let ship = new Ship(request.response);
+        moreInfo.innerHTML = ship.complement;
+        shipNewLi.appendChild(moreInfo);
+    };
 };

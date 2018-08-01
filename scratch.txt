@@ -39,3 +39,11 @@ or
         <%= label_tag dom_id(crew), crew.name %> <br>
     <% end %>
 </div>
+
+// from ship.js
+```js
+shipLi.innerHTML = 'Name: <a href="/ships/' + ship.id + '">' + ship.name + '</a>, Class: ' + ship.typeClass + ', Warp Factor: ' + ship.warpFactor;
+```
+shipLi.innerHTML = 'Name: <a id="'+ ship.id + '" href="#" onclick="getShipInfo();">' + ship.name + '</a>, Class: ' + ship.typeClass + ', Warp Factor: ' + ship.warpFactor;
+
+/ships/' + ship.id + '  **Put in place of the # in getShipInfo();
