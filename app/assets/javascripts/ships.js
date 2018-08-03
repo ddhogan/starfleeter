@@ -57,7 +57,7 @@ function getShipInfo(shipId) {
             });
         } else {
             crewLi = document.createElement("li")
-            crewLi.innerHTML = '<li>There are no crew members currently assigned to '+ship.name+'</li>';
+            crewLi.innerHTML = '<li>There are no crew members currently assigned to '+ship.name+'. <a href="/ships/'+ ship.id + '/assignments">Manage Assignments</a></li>';
             crewUl.appendChild(crewLi);
         }
     };
