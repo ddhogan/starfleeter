@@ -25,8 +25,9 @@ function getCrews() {
         request.response.forEach(function(item) {
             let crew = new Crew(item);
             let crewLi = document.createElement("li");
-            crewLi.textContent = crew.name;
+            crewLi.innerHTML = '<a href="/crews/'+crew.id+'">'+crew.name+'</a>';
             crewUl.appendChild(crewLi);
         });
     };
+    document.querySelector("#moreInfo").innerHTML = "";
 };
