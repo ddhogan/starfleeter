@@ -6,6 +6,7 @@ class Ship {
         this.warpFactor = shipJson.warp_factor;
         this.complement = shipJson.complement;
         this.note = shipJson.note;
+        this.crews = shipJson.crews;
     };
 };
 
@@ -47,8 +48,15 @@ function getShipInfo(shipId) {
     request.send();
     request.onload = function() {
         let ship = new Ship(request.response);
-        moreInfo.innerHTML = '<br><h5>Additional Information for '+ship.name+'</h5><p>Complement: '+ship.complement+', Note: '+ship.note+'</p>';
-        // let assignedCrew = ship.assignments;
-        shipList.appendChild(moreInfo + ship.crews);
+        moreInfo.innerHTML = '<br><h5>Additional Information for '+ship.name+'</h5><p><strong>Complement: </strong>'+ship.complement+', <strong>Note: </strong>'+ship.note+'</p>';
+        assignedCrew = document.createElement("p")
+        if (ship.crews.length > 0) {
+            ship.crews.forEach(function(crew) {
+                assignedCrew.innerHTML = '<p><strong>Assigned Crew: </strong>' +crew.name +'</p>';
+            });
+        } else {
+            assignedCrew.innerHTML = '<p>There are no crew members currently assigned to '+ship.name+'</p>';
+        }
+        moreInfo.appendChild(assignedCrew);
     };
 };
