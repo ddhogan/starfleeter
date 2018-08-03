@@ -37,17 +37,18 @@ function getShips() {
 };
 
 function getShipInfo(shipId) {
+    let shipList = document.querySelector("#shipList");
     let moreInfo = document.querySelector("#moreInfo");
-    moreInfo.innerHTML = '<p>'+shipId+'</p>';
-        
-    // const request = new XMLHttpRequest();
-    // const requestUrl = "/ships/"+`${shipId}`;
-    // request.open('GET', requestUrl);
-    // request.responseType = 'json';
-    // request.send();
-    // request.onload = function() {
-    //     let ship = new Ship(request.response);
-    //     moreInfo.textContent = ship.complement;
-    //     shipList.appendChild(moreInfo);
-    // };
+    
+    const request = new XMLHttpRequest();
+    const requestUrl = "/ships/"+`${shipId}`;
+    request.open('GET', requestUrl);
+    request.responseType = 'json';
+    request.send();
+    request.onload = function() {
+        let ship = new Ship(request.response);
+        moreInfo.innerHTML = '<br><h5>Additional Information for '+ship.name+'</h5><p>Complement: '+ship.complement+', Note: '+ship.note+'</p>';
+        // let assignedCrew = ship.assignments;
+        shipList.appendChild(moreInfo + ship.crews);
+    };
 };
