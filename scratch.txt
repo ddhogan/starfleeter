@@ -47,3 +47,7 @@ shipLi.innerHTML = 'Name: <a href="/ships/' + ship.id + '">' + ship.name + '</a>
 shipLi.innerHTML = 'Name: <a id="'+ ship.id + '" href="#" onclick="getShipInfo();">' + ship.name + '</a>, Class: ' + ship.typeClass + ', Warp Factor: ' + ship.warpFactor;
 
 /ships/' + ship.id + '  **Put in place of the # in getShipInfo();
+
+//= require jquery
+//= require jquery_ujs
+//= require turbolinks

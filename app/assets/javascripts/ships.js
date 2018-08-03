@@ -16,6 +16,10 @@ function getShips() {
     shipList.innerHTML = "<h4>The Fleet</h4>";
     shipList.appendChild(shipUl);
 
+    // clear out the moreInfo section
+    let moreInfo = document.querySelector("#moreInfo");
+    moreInfo.innerHTML = '<p></p>';
+
     const requestUrl = "/ships";
     const request = new XMLHttpRequest();
 
@@ -26,24 +30,24 @@ function getShips() {
         request.response.forEach(function(item) {
             let ship = new Ship(item);
             let shipLi = document.createElement("li");
-            shipLi.innerHTML = 'Name: <a href="#" onclick="getShipInfo(' + ship.id + ');">' + ship.name + '</a>, Class: ' + ship.typeClass + ', Warp Factor: ' + ship.warpFactor + '<br><div id="' + ship.id + '"></div>';
+            shipLi.innerHTML = 'Name: <a href="#" onclick="getShipInfo(' + ship.id + ');">' + ship.name + '</a>, Class: ' + ship.typeClass + ', Warp Factor: ' + ship.warpFactor + '<br> <div id="moreInfoSpot"></div>';
             shipUl.appendChild(shipLi);
         });
     };
 };
 
 function getShipInfo(shipId) {
-    let shipNewLi = document.querySelector("#shipList");
-    let moreInfo = document.createElement("p");
+    let moreInfo = document.querySelector("#moreInfo");
+    moreInfo.innerHTML = '<p>'+shipId+'</p>';
         
-    const request = new XMLHttpRequest();
-    const requestUrl = "/ships/"+`${shipId}`;
-    request.open('GET', requestUrl);
-    request.responseType = 'json';
-    request.send();
-    request.onload = function() {
-        let ship = new Ship(request.response);
-        moreInfo.innerHTML = ship.complement;
-        shipNewLi.appendChild(moreInfo);
-    };
+    // const request = new XMLHttpRequest();
+    // const requestUrl = "/ships/"+`${shipId}`;
+    // request.open('GET', requestUrl);
+    // request.responseType = 'json';
+    // request.send();
+    // request.onload = function() {
+    //     let ship = new Ship(request.response);
+    //     moreInfo.textContent = ship.complement;
+    //     shipList.appendChild(moreInfo);
+    // };
 };

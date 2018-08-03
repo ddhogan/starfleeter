@@ -14,7 +14,8 @@ gem 'nokogiri', '~> 1.8.2'
 gem 'rails-html-sanitizer', '~> 1.0.4'
 
 gem 'active_model_serializers'
-gem 'jquery-rails'
+# COMMENTED OUT FOR TEST PURPOSES
+# gem 'jquery-rails'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
@@ -27,8 +28,11 @@ gem 'uglifier', '>= 1.3.0'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
+
+# COMMENTED OUT FOR TEST PURPOSES
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
