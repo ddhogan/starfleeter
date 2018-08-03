@@ -38,9 +38,7 @@ function getShips() {
 };
 
 function getShipInfo(shipId) {
-    let shipList = document.querySelector("#shipList");
     let moreInfo = document.querySelector("#moreInfo");
-    
     const request = new XMLHttpRequest();
     const requestUrl = "/ships/"+`${shipId}`;
     request.open('GET', requestUrl);
@@ -48,15 +46,19 @@ function getShipInfo(shipId) {
     request.send();
     request.onload = function() {
         let ship = new Ship(request.response);
-        moreInfo.innerHTML = '<br><h5>Additional Information for '+ship.name+'</h5><p><strong>Complement: </strong>'+ship.complement+', <strong>Note: </strong>'+ship.note+'</p>';
-        assignedCrew = document.createElement("p")
+        moreInfo.innerHTML = '<br><strong>Additional Information for '+ship.name+'</strong><p><strong>Complement: </strong>'+ship.complement+', <strong>Note: </strong>'+ship.note+'</p>';
+        crewUl = document.createElement("ul")
+        moreInfo.appendChild(crewUl);
         if (ship.crews.length > 0) {
             ship.crews.forEach(function(crew) {
-                assignedCrew.innerHTML = '<p><strong>Assigned Crew: </strong>' +crew.name +'</p>';
+                crewLi = document.createElement("li")
+                crewLi.innerHTML = '<li><strong>Assigned Crew: </strong>' +crew.name +'</li>';
+                crewUl.appendChild(crewLi);
             });
         } else {
-            assignedCrew.innerHTML = '<p>There are no crew members currently assigned to '+ship.name+'</p>';
+            crewLi = document.createElement("li")
+            crewLi.innerHTML = '<li>There are no crew members currently assigned to '+ship.name+'</li>';
+            crewUl.appendChild(crewLi);
         }
-        moreInfo.appendChild(assignedCrew);
     };
 };
