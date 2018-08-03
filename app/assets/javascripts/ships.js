@@ -49,16 +49,20 @@ function getShipInfo(shipId) {
         moreInfo.innerHTML = '<br><strong>Additional Information for '+ship.name+'</strong><p><strong>Complement: </strong>'+ship.complement+', <strong>Note: </strong>'+ship.note+'</p>';
         crewUl = document.createElement("ul")
         moreInfo.appendChild(crewUl);
+        addLink = document.createElement("a");
+            addLink.innerHTML = '<a href="/ships/'+ ship.id + '/assignments">Manage Assignments</a>';
         if (ship.crews.length > 0) {
             ship.crews.forEach(function(crew) {
                 crewLi = document.createElement("li")
                 crewLi.innerHTML = '<li><strong>Assigned Crew: </strong>' +crew.name +'</li>';
                 crewUl.appendChild(crewLi);
             });
+            moreInfo.appendChild(addLink);
         } else {
             crewLi = document.createElement("li")
-            crewLi.innerHTML = '<li>There are no crew members currently assigned to '+ship.name+'. <a href="/ships/'+ ship.id + '/assignments">Manage Assignments</a></li>';
+            crewLi.innerHTML = '<li>There are no crew members currently assigned to '+ship.name+'.</li>';
             crewUl.appendChild(crewLi);
+            moreInfo.appendChild(addLink);
         }
     };
 };
