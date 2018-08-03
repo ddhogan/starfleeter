@@ -14,7 +14,7 @@ function getShips() {
     let shipList = document.querySelector("#listArea");
     let shipUl = document.createElement("ul");
     shipUl.setAttribute("id", "shipList");
-    shipList.innerHTML = "<h4>The Fleet</h4>";
+    shipList.innerHTML = "<h3>The Fleet</h3>";
     shipList.appendChild(shipUl);
 
     // clear out the moreInfo section
@@ -46,7 +46,7 @@ function getShipInfo(shipId) {
     request.send();
     request.onload = function() {
         let ship = new Ship(request.response);
-        moreInfo.innerHTML = '<br><strong>Additional Information for '+ship.name+'</strong><p><strong>Complement: </strong>'+ship.complement+', <strong>Note: </strong>'+ship.note+'</p>';
+        moreInfo.innerHTML = '<br><h3>Additional Information for '+ship.name+'</h3><p><strong>Complement: </strong>'+ship.complement+', <strong>Note: </strong>'+ship.note+'</p>';
         crewUl = document.createElement("ul")
         moreInfo.appendChild(crewUl);
         addLink = document.createElement("a");
