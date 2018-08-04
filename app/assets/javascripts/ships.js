@@ -49,8 +49,10 @@ function getShipInfo(shipId) {
         moreInfo.innerHTML = '<br><h3>Additional Information for '+ship.name+'</h3><p><strong>Complement: </strong>'+ship.complement+', <strong>Note: </strong>'+ship.note+'</p>';
         crewUl = document.createElement("ul")
         moreInfo.appendChild(crewUl);
+
         addLink = document.createElement("a");
-            addLink.innerHTML = '<a href="/ships/'+ ship.id + '/assignments">Manage Assignments</a>';
+        addLink.innerHTML = '<a href="/assignments">Manage Assignments</a>';
+
         if (ship.crews.length > 0) {
             ship.crews.forEach(function(crew) {
                 crewLi = document.createElement("li")
