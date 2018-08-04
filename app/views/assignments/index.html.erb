@@ -5,6 +5,31 @@
 <% end %>
 </ul>
 <br>
-<!--<%= link_to "Create New Assignment", new_assignment_path %>  -->
+
 <h2>Create new assignment:</h2>
-<%= render 'form' %>
+<%= form_for([@ship, @assignment]) do |f| %>
+    
+    <strong><%= f.label :name %></strong>
+    <%= f.text_field :name %><br>
+    
+    <strong><%= f.label :description %></strong>
+    <%= f.text_field :description %><br></br>
+    
+    <strong><%= f.label :ship_id %></strong><br>
+    <!-- <%= f.collection_check_boxes :ship_id, Ship.all, :id, :name %><br></br> -->
+    <%= f.select(:ship_id) do %>
+        <%= options_from_collection_for_select(Ship.all, :id, :name, :selected => @assignment.ship_id) %>
+    <% end %>
+
+    <br></br>
+    <strong><%= f.label :crew_id %></strong><br>
+    
+    <%= f.select(:crew_id) do %>
+        <%= options_from_collection_for_select(Crew.all, :id, :name, :selected => @assignment.crew_id) %>
+    <% end %>
+
+    <br></br>
+    <%= f.submit %>
+<% end %>
+
+<script>window.onload = postAssignment();</script>
