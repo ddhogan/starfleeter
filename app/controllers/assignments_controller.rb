@@ -5,6 +5,11 @@ class AssignmentsController < ApplicationController
 
     def index
         @assignments = Assignment.all
+        if params[:ship_id]
+            @assignment = Assignment.new(ship_id: params[:ship_id])
+        else
+            @assignment = Assignment.new
+        end
     end
 
     def new

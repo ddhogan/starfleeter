@@ -1,8 +1,10 @@
 <h1>All assignments for all ships:</h1>
-<ul>
+<ul id="assignmentList">
 <% @assignments.each do |a| %>
     <li><%= a.crew.formal_title %> is <%= link_to "assigned", ship_assignment_path(a.ship, a) %> to the <%= a.ship.name %>.</li>
 <% end %>
 </ul>
 <br>
-<%= link_to "Create New Assignment", new_assignment_path %>
+<!--<%= link_to "Create New Assignment", new_assignment_path %>  -->
+<h2>Create new assignment:</h2>
+<%= render 'form' %>
