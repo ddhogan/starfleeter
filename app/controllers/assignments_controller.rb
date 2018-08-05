@@ -1,6 +1,7 @@
 class AssignmentsController < ApplicationController
     before_action :require_login
-    before_action :set_ship, only: [:new, :create, :show, :edit, :update]
+    # before_action :set_ship, only: [:new, :create, :show, :edit, :update]
+    before_action :set_ship, only: [:edit, :update]
     before_action :set_assignment, only: [:show, :edit, :update]
 
     def index
@@ -22,15 +23,18 @@ class AssignmentsController < ApplicationController
             # redirect_to ship_assignment_path(:ship_id => params[:assignment][:ship_id], :id => @assignment.id)
             render json: @assignment, status: 201
         else
-            redirect_to new_ship_assignment_path, alert: "Error: #{@assignment.errors.full_messages.join(", ")}"
+            redirect_to new_assignment_path, alert: "Error: #{@assignment.errors.full_messages.join(", ")}"
         end
     end
 
     def show
         if @assignment
-            render :show   
+            respond_to do |format|
+                format.html { render :show }
+                format.json { render json: @assignment}
+            end
         else
-            redirect_to new_ship_assignment_path, notice: "That ship does not currently have an assignment, create one here."
+            redirect_to new_assignment_path, notice: "That ship does not currently have an assignment, create one here."
         end
     end
 
