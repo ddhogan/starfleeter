@@ -41,6 +41,7 @@ function postAssignment() {
             xhr.setRequestHeader("Accept", "application/json");     
             xhr.setRequestHeader("Content-Type", "application/json; charset=utf-8");
             xhr.send(JSON.stringify(newAssignment));
+            myForm.reset();
         };
     };
 };
