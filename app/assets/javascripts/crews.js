@@ -8,6 +8,10 @@ class Crew {
     };
 };
 
+Crew.prototype.formal_title = function() {
+    `${this.rank} ${this.name}`;
+};
+
 function getCrews() {
     let crewList = document.querySelector("#listArea");
     let crewUl = document.createElement("ul");

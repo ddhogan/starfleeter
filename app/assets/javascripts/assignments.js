@@ -8,10 +8,6 @@ class Assignment {
     };
 };
 
-function getAssignments() {
-
-};
-
 function postAssignment() {
     let myForm = document.querySelector("form")
     if (myForm) {
@@ -32,7 +28,7 @@ function postAssignment() {
                 if (xhr.readyState === XMLHttpRequest.DONE) {
                     let assignmentList = document.querySelector("#assignmentList");
                     let newOne = document.createElement("li")
-                    newOne.innerHTML = '<li>'+xhr.response.crew.name + ' is <a href="/ships/'+ xhr.response.ship.id + '/assignments/' + xhr.response.id +'">' + 'assigned</a> to the ' + xhr.response.ship.name + '.</li>';
+                    newOne.innerHTML = '<li>'+xhr.response.crew.rank+" "+xhr.response.crew.name+ ' is <a href="/ships/'+ xhr.response.ship.id + '/assignments/' + xhr.response.id +'">' + 'assigned</a> to the ' + xhr.response.ship.name + '.</li>';
                     assignmentList.appendChild(newOne);
                 }
             };
