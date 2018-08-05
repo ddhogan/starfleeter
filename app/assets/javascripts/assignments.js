@@ -20,13 +20,14 @@ function postAssignment(event) {
 
             const xhr = new XMLHttpRequest;
             const url = '/assignments';
-            let data = {
+            let newAssignment = {
                 name: document.querySelector("#assignment_name").value,
                 description: document.querySelector("#assignment_description").value,
                 ship_id: document.querySelector("#assignment_ship_id").value,
                 crew_id: document.querySelector("#assignment_crew_id").value
                 
             };
+            let data = JSON.stringify(newAssignment);
             xhr.responseType = 'json';
             xhr.onreadystatechange = () => {
                 if (xhr.readyState === XMLHttpRequest.DONE) {
@@ -35,6 +36,7 @@ function postAssignment(event) {
                 }
             };
             xhr.open('POST', url);
+            xhr.setRequestHeader("Content-Type", "application/json");
             xhr.send(data);
         };
     };
