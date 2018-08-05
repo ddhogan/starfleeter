@@ -7,6 +7,7 @@
 This app borrows a similar interface to the database Starfleet is always using on various StarTrek series.  In addition to managing content related to various starships, users can also assign crew to different ships and note the mission type, see what the current fastest ship in the fleet is, and slightly more!
 ### Now with JavaScript and AJAX!
 
+* [Watch](https://www.youtube.com/watch?v=nfABtDst394) the tour of the newest version!
 * [Watch](https://www.youtube.com/watch?v=STRKKznhV9Y) the tour of the older, Rails only version.
 * Or try it here: https://starfleeter.herokuapp.com/
 ## Installation
@@ -15,7 +16,7 @@ This app borrows a similar interface to the database Starfleet is always using o
 $ bundle install
 $ rake db:migrate
 ```
-2. If you want some seed data to start with:
+2. Seed some data to start with:
 ```
 $ rake db:seed
 ```
