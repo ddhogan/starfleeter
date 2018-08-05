@@ -30,8 +30,10 @@ function postAssignment() {
             xhr.responseType = 'json';
             xhr.onreadystatechange = () => {
                 if (xhr.readyState === XMLHttpRequest.DONE) {
-                    console.log("did this work?"); // code to execute with response
-                    console.log(xhr.response);
+                    let assignmentList = document.querySelector("#assignmentList");
+                    let newOne = document.createElement("li")
+                    newOne.innerHTML = '<li>'+xhr.response.crew.name + ' is <a href="/ships/'+ xhr.response.ship.id + '/assignments/' + xhr.response.id +'">' + 'assigned</a> to the ' + xhr.response.ship.name + '.</li>';
+                    assignmentList.appendChild(newOne);
                 }
             };
             xhr.open('POST', url);
