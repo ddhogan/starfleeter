@@ -1,11 +1,11 @@
 class SessionsController < ApplicationController
     before_action :require_login, only: [:logout]
+    before_action :set_crew, only: [:home]
 
     def welcome
     end
 
     def home
-        @crew = Crew.find_by(:id => session[:crew_id])
     end
 
     def new
@@ -13,21 +13,20 @@ class SessionsController < ApplicationController
         render 'login'
     end
 
-    # only called when signing in with Twitter
-    def create
-        @crew = Crew.find_or_create_by(uid: auth[:uid]) do |u|
-            u.name = auth[:info][:name]
-            u.email = auth[:info][:email]
-            u.image = auth[:info][:image]
-            u.password = SecureRandom.urlsafe_base64
+    # only called when signing in with Facebook
+    def facebook
+        @crew = Crew.find_or_create_by(uid: auth['uid']) do |c|
+            c.name = auth['info']['name']
+            c.email = auth['info']['email']
+            c.password = SecureRandom.urlsafe_base64
+            c.rank ||= "Civilian"
         end
-        
-        @crew.name ||= "unknown name"
-        @crew.rank ||= "unknown rank"
-        @crew.save
-
-        session[:crew_id] = @crew.id
-        redirect_to home_path, notice: "Please confirm that your information is up to date by visiting the Edit Profile page"
+        if @crew.save
+            session[:crew_id] = @crew.id
+            redirect_to home_path
+        else
+            redirect_to root_path
+        end
     end
 
     def login
@@ -53,5 +52,9 @@ class SessionsController < ApplicationController
 
     def auth
         request.env['omniauth.auth']
+    end
+
+    def set_crew
+        @crew = Crew.find_by(:id => session[:crew_id])
     end
 end

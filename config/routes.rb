@@ -1,23 +1,23 @@
 Rails.application.routes.draw do
   
-  # sign in with Twitter
-  get '/users/auth/twitter' => 'sessions#create'
-  get '/auth/twitter' => 'sessions#create'
+  # sign in with Facebook
+  get '/auth/facebook/callback' => 'sessions#facebook'
+  get 'auth/failure', to: redirect('/')
   
   root 'sessions#welcome'
+
   # home_path
   get '/home' => 'sessions#home'
+
   # login_path
   get '/login' => 'sessions#new'
+
   # create_path
   post '/login' => 'sessions#login'
+
   # logout_path
   get '/logout' => 'sessions#logout'
  
-
-  # resources :crews do 
-  #   resources :ratings, only: [:new, :create, :destroy]
-  # end
   resources :crews
   
   # ships_fastest_path
