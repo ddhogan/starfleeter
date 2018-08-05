@@ -8,7 +8,7 @@ class Crew {
     };
 };
 
-Crew.prototype.formal_title = function() {
+Crew.prototype.formalTitle = function() {
     return `${this.rank} ${this.name}`;
 };
 
@@ -29,7 +29,7 @@ function getCrews() {
         request.response.forEach(function(item) {
             let crew = new Crew(item);
             let crewLi = document.createElement("li");
-            crewLi.innerHTML = '<a href="/crews/' + crew.id + '">' + crew.formal_title() + '</a>';
+            crewLi.innerHTML = '<a href="/crews/' + crew.id + '">' + crew.formalTitle() + '</a>';
             crewUl.appendChild(crewLi);
         });
     };
