@@ -28,7 +28,7 @@ $ rails s
 ```
 localhost:3000
 ```
-5. Press `ctrl+C` to shut it down.
+5. Press `ctrl+C` in your terminal to shut it down.
 
 This was made with Ruby 2.3.4, Rails 5.1.4, JavaScript ES6, AJAX, and moderate amounts of love.
 
