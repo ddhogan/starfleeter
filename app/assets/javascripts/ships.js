@@ -8,6 +8,9 @@ class Ship {
         this.note = shipJson.note;
         this.crews = shipJson.crews;
     };
+    renderShip() {
+        return 'Name: <a href="#" onclick="getShipInfo(' + this.id + ');">' + this.name + '</a>, Class: ' + this.typeClass + ', Warp Factor: ' + this.warpFactor + '<br> <div id="moreInfoSpot"></div>';
+    };
 };
 
 let allShips = [];
@@ -35,7 +38,7 @@ function getShips() {
             let ship = new Ship(item);
             allShips.push(ship);
             let shipLi = document.createElement("li");
-            shipLi.innerHTML = 'Name: <a href="#" onclick="getShipInfo(' + ship.id + ');">' + ship.name + '</a>, Class: ' + ship.typeClass + ', Warp Factor: ' + ship.warpFactor + '<br> <div id="moreInfoSpot"></div>';
+            shipLi.innerHTML = ship.renderShip();
             shipUl.appendChild(shipLi);
         });
     };
@@ -51,7 +54,7 @@ function alphabetize() {
         return a.name > b.name;
     }).forEach(function(ship) {
         let shipLi = document.createElement("li");
-        shipLi.innerHTML = 'Name: <a href="#" onclick="getShipInfo(' + ship.id + ');">' + ship.name + '</a>, Class: ' + ship.typeClass + ', Warp Factor: ' + ship.warpFactor + '<br> <div id="moreInfoSpot"></div>';
+        shipLi.innerHTML = ship.renderShip();
         document.getElementById("shipList").appendChild(shipLi);
     });
 };
