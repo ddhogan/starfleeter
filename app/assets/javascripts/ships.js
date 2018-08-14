@@ -10,6 +10,8 @@ class Ship {
     };
 };
 
+let allShips = [];
+
 function getShips() {
     let shipList = document.querySelector("#listArea");
     let shipUl = document.createElement("ul");
@@ -30,11 +32,27 @@ function getShips() {
     request.onload = function() {
         request.response.forEach(function(item) {
             let ship = new Ship(item);
+            allShips.push(ship);
             let shipLi = document.createElement("li");
             shipLi.innerHTML = 'Name: <a href="#" onclick="getShipInfo(' + ship.id + ');">' + ship.name + '</a>, Class: ' + ship.typeClass + ', Warp Factor: ' + ship.warpFactor + '<br> <div id="moreInfoSpot"></div>';
             shipUl.appendChild(shipLi);
         });
     };
+    let alphaButton = document.createElement("button");
+    alphaButton.innerHTML = '<button onclick="alphabetize();">Alphabetize Ships</button>';
+    shipList.append(alphaButton);
+};
+
+function alphabetize() {
+    let shipList = document.getElementById("shipList");
+    shipList.innerText = ""; // clear out the current list
+    allShips.sort(function(a, b) {
+        return a.name > b.name;
+    }).forEach(function(ship) {
+        let shipLi = document.createElement("li");
+        shipLi.innerHTML = 'Name: <a href="#" onclick="getShipInfo(' + ship.id + ');">' + ship.name + '</a>, Class: ' + ship.typeClass + ', Warp Factor: ' + ship.warpFactor + '<br> <div id="moreInfoSpot"></div>';
+        document.getElementById("shipList").appendChild(shipLi);
+    });
 };
 
 function getShipInfo(shipId) {

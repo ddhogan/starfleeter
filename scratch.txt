@@ -52,13 +52,14 @@ shipLi.innerHTML = 'Name: <a id="'+ ship.id + '" href="#" onclick="getShipInfo()
 //= require jquery_ujs
 //= require turbolinks
 
-*** Adding the Alphabetize function***
-let allShips = [];
+        *** Adding the Alphabetize function***
 
 let alphaButton = document.createElement("button");
-    alphaButton.innerHTML = '<button onclick="alphabetize();">Alphabetize Ships</button>';
-    shipList.append(alphaButton);
+alphaButton.innerHTML = '<button onclick="alphabetize();">Alphabetize Ships</button>';
+shipList.append(alphaButton);
+
 // right after making new Ship
+let allShips = [];
 allShips.push(ship);
 
 
