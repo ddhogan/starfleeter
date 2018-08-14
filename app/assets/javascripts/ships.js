@@ -25,7 +25,8 @@ function getShips() {
 
     const requestUrl = "/ships";
     const request = new XMLHttpRequest();
-
+    allShips = []; // start with an empty list
+    
     request.open('GET', requestUrl);
     request.responseType = 'json';
     request.send();
