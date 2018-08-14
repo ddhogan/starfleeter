@@ -6,11 +6,16 @@ class Crew {
         this.specialty = crewJson.specialty;
         this.clearance = crewJson.clearance;
     };
+
+    // ES6 syntax for prototype function
+    formalTitle() {
+        return `${this.rank} ${this.name}`;
+    }
 };
 
-Crew.prototype.formalTitle = function() {
-    return `${this.rank} ${this.name}`;
-};
+// Crew.prototype.formalTitle = function() {
+//     return `${this.rank} ${this.name}`;
+// };
 
 function getCrews() {
     let crewList = document.querySelector("#listArea");
@@ -35,3 +40,5 @@ function getCrews() {
     };
     document.querySelector("#moreInfo").innerHTML = "";
 };
+
+// could build prototype to refactor

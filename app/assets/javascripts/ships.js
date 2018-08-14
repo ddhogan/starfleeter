@@ -16,7 +16,7 @@ function getShips() {
     shipUl.setAttribute("id", "shipList");
     shipList.innerHTML = "<h3>The Fleet</h3>";
     shipList.appendChild(shipUl);
-
+    
     // clear out the moreInfo section
     let moreInfo = document.querySelector("#moreInfo");
     moreInfo.innerHTML = '<p></p>';

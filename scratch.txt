@@ -51,3 +51,26 @@ shipLi.innerHTML = 'Name: <a id="'+ ship.id + '" href="#" onclick="getShipInfo()
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+
+*** Adding the Alphabetize function***
+let allShips = [];
+
+let alphaButton = document.createElement("button");
+    alphaButton.innerHTML = '<button onclick="alphabetize();">Alphabetize Ships</button>';
+    shipList.append(alphaButton);
+// right after making new Ship
+allShips.push(ship);
+
+
+
+function alphabetize() {
+    let shipList = document.getElementById("shipList");
+    shipList.innerText = ""; // clear out the current list
+    allShips.sort(function(a, b) {
+        return a.name > b.name;
+    }).forEach(function(ship) {
+        let shipLi = document.createElement("li");
+        shipLi.innerHTML = 'Name: <a href="#" onclick="getShipInfo(' + ship.id + ');">' + ship.name + '</a>, Class: ' + ship.typeClass + ', Warp Factor: ' + ship.warpFactor + '<br> <div id="moreInfoSpot"></div>';
+        document.getElementById("shipList").appendChild(shipLi);
+    });
+};
