@@ -4,10 +4,11 @@ class ShipsController < ApplicationController
 
     def index
         @ships = Ship.all
-        respond_to do |format|
-            format.json { render json: @ships }
-            format.html { render :index }
-        end
+        render json: @ships
+        # respond_to do |format|
+        #     format.json { render json: @ships }
+        #     format.html { render :index }
+        # end
     end
 
     def new
@@ -26,11 +27,11 @@ class ShipsController < ApplicationController
     def show
         @ship = Ship.find_by_id(params[:id])
         @crews = @ship.crews
+        # render json: @ship
         respond_to do |format|
             format.json { render json: @ship }
             format.html { render :show }
         end
-
     end
 
     def edit
