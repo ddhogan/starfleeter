@@ -71,7 +71,7 @@ function getShipInfo(shipId) {
     request.send();
     request.onload = function() {
         let ship = new Ship(request.response);
-        moreInfo.innerHTML = '<br><h3>Additional Information for '+ship.name+'</h3><p><strong>Complement: </strong>'+ship.complement+', <strong>Note: </strong>'+ship.note+'</p>';
+        moreInfo.innerHTML = '<br><h3>Additional Information for '+ship.name+'</h3><p><strong>Complement: </strong>'+ship.complement+', <strong>Note: </strong>'+ship.note+'</p><a href="/ships/'+ship.id+'">Manage Ship</a>';
         crewUl = document.createElement("ul")
         moreInfo.appendChild(crewUl);
 
