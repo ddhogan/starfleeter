@@ -45,6 +45,9 @@ function getShips() {
     let alphaButton = document.createElement("button");
     alphaButton.innerHTML = '<button onclick="alphabetize();">Alphabetize Ships</button>';
     shipList.append(alphaButton);
+    let newShipButton = document.createElement("button");
+    newShipButton.innerHTML = '<a href="/ships/new"><button>Create New Ship</button></a>';
+    shipList.append(newShipButton);
 };
 
 function alphabetize() {
