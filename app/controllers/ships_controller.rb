@@ -4,7 +4,6 @@ class ShipsController < ApplicationController
 
     def index
         @ships = Ship.all
-        # render json: @ships
         respond_to do |format|
             format.json { render json: @ships }
             format.html { render :index }
@@ -19,17 +18,14 @@ class ShipsController < ApplicationController
         @ship = Ship.new(ship_params)
         if @ship.save
             redirect_to ship_path(@ship)
-            # redirect_to home_path
         else
             redirect_to new_ship_path(@ship), error: "Error: #{@ship.errors.full_messages.join(", ")}"
-            # redirect_to home_path, error: "Error: #{@ship.errors.full_messages.join(", ")}"
         end
     end
 
     def show
         @ship = Ship.find_by_id(params[:id])
         @crews = @ship.crews
-        # render json: @ship
         respond_to do |format|
             format.json { render json: @ship }
             format.html { render :show }

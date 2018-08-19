@@ -1,6 +1,5 @@
 class AssignmentsController < ApplicationController
     before_action :require_login
-    # before_action :set_ship, only: [:new, :create, :show, :edit, :update]
     before_action :set_ship, only: [:edit, :update]
     before_action :set_assignment, only: [:show, :edit, :update]
 
