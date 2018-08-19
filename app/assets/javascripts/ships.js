@@ -54,7 +54,7 @@ function alphabetize() {
     let shipList = document.getElementById("shipList");
     shipList.innerText = ""; // clear out the current list
     allShips.sort(function(a, b) {
-        return a.name > b.name;
+        return a.name.toLowerCase() > b.name.toLowerCase();
     }).forEach(function(ship) {
         let shipLi = document.createElement("li");
         shipLi.innerHTML = ship.renderShip();
