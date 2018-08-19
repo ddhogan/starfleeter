@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180805194722) do
+ActiveRecord::Schema.define(version: 20180819193250) do
 
   create_table "assignments", force: :cascade do |t|
     t.string "name"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20180805194722) do
 
   create_table "crews", force: :cascade do |t|
     t.string "name"
-    t.string "rank"
+    t.string "rank", default: "Civilian"
     t.string "specialty"
     t.boolean "clearance", default: false
     t.string "password_digest"
