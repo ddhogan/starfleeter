@@ -9,7 +9,7 @@ This app borrows a similar interface to the database Starfleet is always using o
 
 * [Watch](https://www.youtube.com/watch?v=nfABtDst394) the tour of the newest version!
 * [Watch](https://www.youtube.com/watch?v=STRKKznhV9Y) the tour of the older, Rails only version.
-* Or try it here: https://starfleeter.herokuapp.com/
+* ~~Or try it here: https://starfleeter.herokuapp.com/~~ The Heroku hosted version is still in development.  Several features do not work as intended.
 ## Installation
 1. Fork and clone this repository, and then within the main directory execute
 ```
