@@ -58,7 +58,7 @@ function alphabetize() {
     }).forEach(function(ship) {
         let shipLi = document.createElement("li");
         shipLi.innerHTML = ship.renderShip();
-        document.getElementById("shipList").appendChild(shipLi);
+        shipList.appendChild(shipLi);
     });
 };
 
