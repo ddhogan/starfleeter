@@ -19,8 +19,10 @@ class AssignmentsController < ApplicationController
     def create
         @assignment = Assignment.new(assignment_params)
         if @assignment.save
-            # redirect_to ship_assignment_path(:ship_id => params[:assignment][:ship_id], :id => @assignment.id)
-            render json: @assignment, status: 201
+            respond_to do |format|
+                format.json { render json: @assignment }
+                format.html { render :show }
+            end
         else
             redirect_to new_assignment_path, alert: "Error: #{@assignment.errors.full_messages.join(", ")}"
         end

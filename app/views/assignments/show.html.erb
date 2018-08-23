@@ -5,5 +5,5 @@ Assignment Description: <%= @assignment.description %><br>
 Assigned Ship: #<%= @assignment.ship_id %> - <%= @assignment.ship.name %><br>
 Assigned Crew: #<%= @assignment.crew_id %> - <%= @assignment.crew.name %><br>
 <br></br>
-<p><%= link_to "Edit this assignment", edit_ship_assignment_path(@assignment.ship_id) %></p>
+<p><%= link_to "Edit this assignment", edit_assignment_path(@assignment.id) %></p>
 <p><%= link_to "Delete", @assignment, method: :delete, data: { confirm: "Confirm Deleting?" } %></p>
