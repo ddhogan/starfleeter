@@ -62,7 +62,7 @@
     width: 30%; /* 480px / 800px */
   }
   
-  .intro {
+  .welcome {
     float: left;
     width: 60%; /* 480px / 800px */
   }
@@ -72,6 +72,15 @@
     width: 30%; /* 480px / 800px */
   }
 
+  .welcome-sidebar {
+    /* list-style-type: circle; */
+    background: #eee;
+    border: 1px solid #ccc;
+    float: right;
+    padding: 2.08333333333%; /* 5px / 240px */
+    width: 30%; /* 240px / 800px */
+  }
+  
   .sidebar {
     list-style-type: circle;
     background: #eee;

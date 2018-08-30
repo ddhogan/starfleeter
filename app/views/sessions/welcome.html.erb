@@ -2,7 +2,7 @@
   <div class="col-md-8 col-md-offset-2">
     <h2>Starfleeter</h2>
 
-    <div class="intro">
+    <div class="welcome">
       <h4>Welcome to Starfleeter, the personnel and fleet management system based on the famous <a href="https://en.wikipedia.org/wiki/LCARS">LCARS</a> interface!</h4>
       <br>
       <p>Whether you're part of Starfleet Intelligence, or the <a href="http://memory-alpha.wikia.com/wiki/Obsidian_Order">Obsidian Order</a>, or the <a href="http://memory-alpha.wikia.com/wiki/Tal_Shiar">Tal Shiar</a>, or just a mobster with the <a href="http://memory-alpha.wikia.com/wiki/Orion_Syndicate">Orion Syndicate</a>, we've got you covered.</p>
@@ -10,11 +10,12 @@
       <p>LCARS helps you and your intelligence organization track and share information about relevant spacecraft, and assign crew to specific ships.</p>
     </div>
 
-    <div class="sidebar">
+    <div class="welcome-sidebar">
       <h3>Menu</h3>
       <ul>
         <% if !logged_in? %>
           <li><a href="/login"><button>Log In</button></a></li>
+          <ul><li>Just lookin' around? Here's a demo login:</li><li>Username: "Roger"</li><li>pw: "cilantro"</li></ul>
           <li><a href="/crews/new"><button>Sign Up</button></a></li>
           <li><a href="/auth/facebook"><button>Sign In with Faceblork</button></a></li>
         <% else %>
