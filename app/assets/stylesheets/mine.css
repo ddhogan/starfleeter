@@ -61,6 +61,11 @@
     float: left;
     width: 30%; /* 480px / 800px */
   }
+  
+  .intro {
+    float: left;
+    width: 60%; /* 480px / 800px */
+  }
 
   .listArea {
     float: left;
