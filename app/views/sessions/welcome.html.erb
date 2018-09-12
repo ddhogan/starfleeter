@@ -15,15 +15,18 @@
       <ul>
         <% if !logged_in? %>
           <li><a href="/login"><button>Log In</button></a></li>
-          <ul><li>Just lookin' around? Here's a demo login:</li><li>Username: "Roger"</li><li>pw: "cilantro"</li></ul>
           <li><a href="/crews/new"><button>Sign Up</button></a></li>
           <li><a href="/auth/facebook"><button>Sign In with Faceblork</button></a></li>
         <% else %>
           <li><a href="/home"><button>Home</button></a></li>
         <% end %>
-        <li> For more information, see the <a href="https://github.com/ddhogan/starfleeter/blob/master/README.md">README</a></li>
+        <p> For more information, see the <a href="https://github.com/ddhogan/starfleeter/blob/master/README.md">README</a></p>
       </ul>
+        <aside><i>Just lookin' around? Here's a demo login:</i>
+          <li>Username: "Roger"</li>
+          <li>pw: "cilantro"</li>
+        </aside>
     </div>
-
+    
   </div>
 </div>
