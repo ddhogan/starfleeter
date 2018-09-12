@@ -9,7 +9,7 @@ class Ship {
         this.crews = shipJson.crews;
     };
     renderShip() {
-        return 'Name: <a href="#" onclick="getShipInfo(' + this.id + ');">' + this.name + '</a>, Class: ' + this.typeClass + ', Warp Factor: ' + this.warpFactor + '<br> <div id="moreInfoSpot"></div>';
+        return 'Name: <a href="#" onclick="getShipInfo(' + this.id + ');">' + this.name + '</a>, Class: ' + this.typeClass + ', Maximum Warp Factor: ' + this.warpFactor + ' <meter value="'+ parseFloat(this.warpFactor) +'" min="0.1" max="9.9" ></meter><br> <div id="moreInfoSpot"></div>';
     };
 };
 
