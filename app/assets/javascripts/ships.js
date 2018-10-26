@@ -54,7 +54,7 @@ function alphabetize() {
     let shipList = document.getElementById("shipList");
     shipList.innerText = ""; // clear out the current list
     
-    // console.log(allShips);
+    console.log(allShips);
     allShips.sort(function(a, b) {
         let nameA = a.name.toLowerCase();
         let nameB = b.name.toLowerCase();
