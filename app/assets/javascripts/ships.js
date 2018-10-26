@@ -53,8 +53,19 @@ function getShips() {
 function alphabetize() {
     let shipList = document.getElementById("shipList");
     shipList.innerText = ""; // clear out the current list
+    
+    // console.log(allShips);
     allShips.sort(function(a, b) {
-        return a.name.toLowerCase() > b.name.toLowerCase();
+        let nameA = a.name.toLowerCase();
+        let nameB = b.name.toLowerCase();
+        if (nameA < nameB) {
+            return -1;
+        }
+        if (nameA > nameB) {
+            return 1;
+        }
+        return 0;
+        // return a.name.toLowerCase() > b.name.toLowerCase();
     }).forEach(function(ship) {
         let shipLi = document.createElement("li");
         shipLi.innerHTML = ship.renderShip();
