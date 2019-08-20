@@ -13,7 +13,7 @@ end
 gem 'rails', '~> 5.1.4'
 # updating dependencies because GitHub said to
 gem 'loofah', '~> 2.2.1'
-gem 'nokogiri', '~> 1.8.2'
+gem 'nokogiri', '~> 1.10.4'
 gem 'rails-html-sanitizer', '~> 1.0.4'
 
 gem 'active_model_serializers'
