@@ -12,7 +12,7 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 # updating dependencies because GitHub said to
-gem 'loofah', '~> 2.2.1'
+gem 'loofah', '~> 2.3.1'
 gem 'nokogiri', '~> 1.10.4'
 gem 'rails-html-sanitizer', '~> 1.0.4'
 
